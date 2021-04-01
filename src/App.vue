@@ -27,6 +27,7 @@ export default {
     @import '@/assets/styles/variables.scss';
     @import '@/assets/styles/global.scss';
     @import '@/assets/styles/main.scss';
+    @import '@/assets/styles/animations.scss';
 
 	#app-container { 
 		-webkit-app-region: drag;

@@ -1,16 +1,19 @@
 <template>
     <div id="auth-container">
-        <div id="auth-banner">
+        <div id="auth-banner" class="noselect">
             <img src="https://www.sia-partners.com/sites/default/files/offers/cover_picture/2020-07/iStock-1145592947-1_1.jpg">
         </div>
-        <div id="auth-form">
-            <div id="auth-inputs" class="content noselect">
+        <div id="auth-form" class="content">
+            <div id="auth-inputs" class="noselect">
                 <div v-if="showRegisterForm">
                     <RegisterForm />
                 </div>
                 <div v-else>
                     <LoginForm />
                 </div>
+            </div>
+            <div id="error-container">
+                <p v-if="error" class="error-msg">{{ error }}</p>
             </div>
         </div>
     </div>
@@ -25,6 +28,11 @@ export default {
     components: {
         LoginForm,
         RegisterForm
+    },
+    data() {
+        return {
+            error: null
+        }
     },
     computed: {
         showRegisterForm: function() {
@@ -67,6 +75,7 @@ export default {
         width: 50%;
         height: 100%;
         overflow: hidden;
+        
         img {
             width: 100%;
             height: 100%;
@@ -79,8 +88,15 @@ export default {
         position: absolute;
         left: 50%;
         top: 50%;
-        height: 500px;
         transform: translate(-50%, -50%);
+    }
+
+    #error-container {
+        position: absolute;
+        width: auto;
+        bottom: 15%;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
 </style>

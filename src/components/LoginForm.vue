@@ -1,14 +1,12 @@
 <template>
-    <div>
+    <div class="fade-right">
         <h1>Sign In.</h1>
-        <p>You are current not logged in. Please login to see your <strong>ETH/ETC wallet</strong> value & <strong>ethosOS rig</strong> stats.</p>
+        <p>You are current not logged in. Please login to see your ETH wallet value & ethosOS rig stats.</p>
         <section>
-            <label>Email</label>
-            <input type="text" placeholder="name@domain.com">
-            <label>Password</label>
-            <input type="text" placeholder="at least 6 characters">
+            <input type="text" placeholder="email">
+            <input type="text" placeholder="password">
         </section>
-        <section class="bottom">
+        <section>
             <button @click="Login" class="btn-action large">Sign In</button>
             <p>Don't have an account yet? <router-link to="/authenticate?form=register"><a>Sign up</a></router-link>.</p>
         </section>
@@ -40,6 +38,20 @@ export default {
         line-height: 20px;
         font-size: 14px;
         margin: 15px 0;
+    }
+
+    .fade-right {
+        animation: fade_in ease-out 150ms forwards; 
+    }
+
+    @keyframes fade_in {
+        0% {
+            transform: translateX(-2.5%);
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
     }
 
 </style>
