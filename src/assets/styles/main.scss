@@ -1,0 +1,39 @@
+.content {
+	-webkit-app-region: no-drag;
+}
+
+.noselect {
+    user-select: none;
+}
+
+.btn-action {
+	user-select: none;
+	width: auto;
+	height: 38px;
+	padding: 5px 20px;
+	border-radius: 5px;
+	background: none;
+	text-align: center;
+	line-height: 30px;
+	font-size: 13px;
+	font-weight: 500;
+    transition: all ease-in 75ms;
+    color: white;
+}
+
+.btn-action:hover {
+    opacity: 0.9;
+}
+
+.btn-action {
+    background: $theme;
+}
+
+.bottom {
+    position: absolute;
+	bottom: 0;
+}
+
+.large {
+	width: 100%;
+}

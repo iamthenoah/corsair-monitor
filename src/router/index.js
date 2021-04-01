@@ -1,13 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
 
 const routes = [
 	{
 		path: '/',
-		name: 'Home',
-		component: Home
+		name: 'Dashboard',
+		component: () => import('../views/Dashboard.vue')
 	},
-	// component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+	{
+		path: '/rig',
+		name: 'Rig',
+		component: () => import('../views/Rig.vue')
+	},	
+	{
+		path: '/wallet',
+		name: 'Wallet',
+		component: () => import('../views/Wallet.vue')
+	},	
+	{
+		path: '/authenticate',
+		name: 'Authenticate',
+		component: () => import('../views/Authenticate.vue')
+	},
 ];
 
 const router = createRouter({

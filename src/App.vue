@@ -15,7 +15,10 @@ import NavigationMenu from '@/components/NavigationMenu.vue';
 export default {
     components: {
         NavigationMenu,
-    },
+	},
+	mounted() {
+		if (!this.$store.getters.isAuthenticated) this.$router.push('/authenticate?form=login');
+	},
 }
 </script>
 
@@ -26,6 +29,7 @@ export default {
     @import '@/assets/styles/main.scss';
 
 	#app-container { 
+		-webkit-app-region: drag;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 280px auto;
@@ -34,7 +38,6 @@ export default {
 	}
 
 	#nav-container {
-		-webkit-app-region:drag;
 		background: whitesmoke;
 	}
 
