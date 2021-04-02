@@ -30,8 +30,8 @@ export default {
 
     .mode-icon-container {
         position: relative;
-        height: 38px;
-        width: 38px;
+        height: 35px;
+        width: 35px;
         background: whitesmoke;
         margin: 20px;
         border-radius: 5px;
@@ -43,6 +43,7 @@ export default {
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+        font-size: 20px;
     }
 
     .light {

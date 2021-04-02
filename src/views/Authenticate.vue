@@ -53,6 +53,12 @@ export default {
         showResetPasswordForm: function() {
             return this.$route.query.form == 'resetPassword';
         }
+    },
+    errorCaptured(err, vm, info) {
+        this.error = err.message;
+        setTimeout(() => {
+            this.error = null
+        }, 3000);
     }
 }
 
@@ -100,8 +106,8 @@ export default {
     }
 
     #auth-inputs {
-        width: 300px;
         position: absolute;
+        width: 300px;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);

@@ -54,6 +54,15 @@
 }
 
 .error-msg {
-	color: $red;
+	color: $red !important;
 	font-weight: 500;
+}
+
+.invalid-input {
+	border: 2px solid $red;
+	color: $red;
+}
+
+.invalid-input::placeholder {
+	color: $red !important;
 }
