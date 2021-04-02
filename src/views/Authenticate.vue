@@ -2,7 +2,8 @@
     <div id="auth-container">
         <div id="auth-banner" class="noselect">
             <!-- <img src="https://www.sia-partners.com/sites/default/files/offers/cover_picture/2020-07/iStock-1145592947-1_1.jpg"> -->
-            <img src="https://www.itl.cat/pngfile/big/45-450360_ice-iphone-x-tumblr-wallpaper-hd.jpg" alt="">
+            <img src="https://www.itl.cat/pngfile/big/45-450360_ice-iphone-x-tumblr-wallpaper-hd.jpg">
+            <!-- <img src="http://www.99naturewallpapers.com/admin/assets/images/wallpapers/1366/cold-snow-winter_1366x768.png"> -->
         </div>
         <div id="auth-form" class="content">
             <div id="auth-inputs" class="noselect">

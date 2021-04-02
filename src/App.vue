@@ -18,9 +18,6 @@ export default {
     components: {
         NavigationMenu,
 	},
-	mounted() {
-		if (!this.$store.getters.isAuthenticated) this.$router.push('/authenticate?form=login');
-	},
 }
 </script>
 

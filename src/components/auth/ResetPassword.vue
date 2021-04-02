@@ -4,13 +4,13 @@
         <p>A reset link will be sent to you via email where you will be able to reset your password.</p>
         <div v-if="resetEmailSent">
             <section>
-                <p id="reset-sent">Reset link sent.</p>
-                <p>Didn't receive an email? <a @click="sendResetLink()">Re-send email</a>.</p>
+                <p id="reset-sent">Email sent.</p>
+                <p>Didn't receive anything? <a @click="sendResetLink()">Re-send email</a>.</p>
             </section>
         </div>
         <div v-else>
             <section>
-                <input type="text" placeholder="enter current email">
+                <input type="text" placeholder="current email">
                 <button @click="sendResetLink()" class="btn large">Send Reset Email</button>
             </section>
         </div>

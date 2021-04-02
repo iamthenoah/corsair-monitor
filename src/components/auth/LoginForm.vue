@@ -5,7 +5,7 @@
         <section>
             <input type="text" placeholder="email">
             <input type="text" placeholder="password">
-            <router-link to="/authenticate?form=resetPassword"><a id="forgot-password">forgot your password?</a></router-link>
+            <router-link to="/authenticate?form=resetPassword"><a id="forgot-password">forgot password?</a></router-link>
         </section>
         <section>
             <button @click="Login" class="btn-action large">Sign In</button>
