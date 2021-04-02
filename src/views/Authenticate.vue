@@ -1,14 +1,13 @@
 <template>
     <div id="auth-container">
-        <div id="auth-banner" class="noselect fade-left">
-            <img src="https://www.sia-partners.com/sites/default/files/offers/cover_picture/2020-07/iStock-1145592947-1_1.jpg">
-            <!-- <img src="https://www.itl.cat/pngfile/big/45-450360_ice-iphone-x-tumblr-wallpaper-hd.jpg"> -->
-            <!-- <img src="https://r1.ilikewallpaper.net/ipad-air-wallpapers/download/24199/Nature-Autumn-Red-Leaf-Calm-Lake-Landscape-iPad-4-wallpaper-ilikewallpaper_com.jpg"> -->
-            <!-- <img src="https://wimg.rule34.xxx//images/4022/1dcab858752e45aa0dd6f25bacaa7422.png" alt=""> -->
-            <!-- <img src="https://pbs.twimg.com/media/ExZbWm0U4AIFW8O?format=jpg&name=medium" alt=""> -->
+        <div id="auth-banner" class="noselect bg-theme">
+            <!-- <img class="fade-left" src="https://www.sia-partners.com/sites/default/files/offers/cover_picture/2020-07/iStock-1145592947-1_1.jpg"> -->
+            <img class="fade-left" src="https://www.itl.cat/pngfile/big/45-450360_ice-iphone-x-tumblr-wallpaper-hd.jpg">
+            <!-- <img class="fade-left" src="https://wimg.rule34.xxx//images/4022/1dcab858752e45aa0dd6f25bacaa7422.png" alt=""> -->
+            <!-- <img class="fade-left" src="https://pbs.twimg.com/media/ExZbWm0U4AIFW8O?format=jpg&name=medium" alt=""> -->
         </div>
         <main id="auth-form">
-            <div id="auth-inputs" class="noselect">
+            <div id="auth-inputs">
                 <div v-if="showRegisterForm">
                     <RegisterForm />
                 </div>

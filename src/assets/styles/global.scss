@@ -3,6 +3,7 @@
     padding: 0;
     font-family: 'Roboto';
     box-sizing: border-box;
+    transition: all ease-in 100ms;
 }
 
 main {
@@ -48,6 +49,7 @@ input {
 }
 
 ::placeholder {
+    transition: all ease-in 100ms;
     color: $grey;
     opacity: 1;
 }
