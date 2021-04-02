@@ -1,6 +1,10 @@
 <template>
-    <div @click="onClick" class="button">
-        <div v-if="text == 'Dashboard'" class="selected-indicator"></div>
+    <div @click="onClick" class="menu-button noselect">
+        <div v-if="selected">
+            <div class="selected-indicator-bg"></div>
+            <div class="selected-indicator"></div>
+        </div>
+        <span class="material-icons">{{ icon }}</span>
         <h2>{{ text }}</h2>
     </div>
 </template>
@@ -10,6 +14,7 @@ export default {
     props: {
         route: String,
         text: String,
+        icon: String,
         selected: Boolean
     },
     methods: {
@@ -24,29 +29,47 @@ export default {
     
     @import '@/assets/styles/variables.scss';
 
-    .button {
+    .menu-button {
+        position: relative;
         width: 280px;
         height: 60px;
+        color: $grey;
+        margin: 10px 0;
     }
 
-    .button:hover {
-        background: white;
+    .menu-button:hover {
+        background: rgba(white, 0.75);
         cursor: pointer;
     }
 
     .selected-indicator {
         position: absolute;
-        height: 60px;
+        height: 100%;
         width: 5px;
         background: $theme;
+    }
+
+    .selected-indicator-bg {
+        position: absolute;
+        background: linear-gradient(to right, rgba($theme, 0.1), transparent);
+        width: 10%;
+        height: 60px;
+        left: 0;
     }
 
     h2 {
         transform: translateY(100%);
         font-size: 16px;
-        margin-left: 40px;
-        text-transform: uppercase;
+        margin-left: 70px;
+        text-transform: capitalize;
         font-weight: 500;
+    }
+
+    span {
+        position: absolute;
+        left: 25px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
 </style>

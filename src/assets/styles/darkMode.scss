@@ -21,4 +21,20 @@
     ::placeholder {
         color: white;
     }
+
+    .material-icons {
+        color: white;
+    }
+
+    .selected-indicator-bg {
+        background: linear-gradient(to right, rgba(white, 0.1), transparent);
+    }
+
+    .selected-indicator {
+        background: white;
+    }
+
+    .menu-button:hover {
+        background: rgba(white, 0.1);
+    }
 }

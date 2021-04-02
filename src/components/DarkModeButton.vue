@@ -46,11 +46,11 @@ export default {
     }
 
     .light {
-        color: $yellow;
+        color: $yellow !important;
     }
 
     .dark {
-        color: $navy;
+        color: $navy !important;
     }
 
 </style>
