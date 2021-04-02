@@ -26,34 +26,11 @@ export default {
 
 <style lang="scss" scoped>
     
-    @import '@/assets/styles/variables.scss';
-
-    p {
-        color: $grey-light;
-        line-height: 20px;
-        font-size: 14px;
-        margin: 15px 0;
-    }
-
     #forgot-password {
         float: right;
         font-size: 13px;
         right: 0;
         margin-bottom: 20px;
-    }
-
-    .fade-right {
-        animation: fade_in ease-out 150ms forwards; 
-    }
-
-    @keyframes fade_in {
-        0% {
-            transform: translateX(-2.5%);
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
     }
 
 </style>

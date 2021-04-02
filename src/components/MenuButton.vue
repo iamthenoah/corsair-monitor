@@ -1,7 +1,7 @@
 <template>
     <div @click="onClick" class="button">
-        <div v-if="selected" class="selected-indicator"></div>
-        <p>{{ text }}</p>
+        <div v-if="text == 'Dashboard'" class="selected-indicator"></div>
+        <h2>{{ text }}</h2>
     </div>
 </template>
 
@@ -35,12 +35,13 @@ export default {
     }
 
     .selected-indicator {
-        height: 100%;
+        position: absolute;
+        height: 60px;
         width: 5px;
         background: $theme;
     }
 
-    p {
+    h2 {
         transform: translateY(100%);
         font-size: 16px;
         margin-left: 40px;

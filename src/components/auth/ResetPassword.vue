@@ -6,7 +6,7 @@
             <p>Otherwise we can <a @click="sendResetLink()">send the email</a> again.</p>
         </div>
         <div v-else>
-            <h1>Reset Password.</h1>
+            <h3>Reset Password.</h3>
             <p>A reset link will be sent to you via email where you will be able to reset your password.</p>
             <section>
                 <input type="text" placeholder="enter current email">
@@ -36,20 +36,6 @@ export default {
 <style lang="scss" scoped>
     
     @import '@/assets/styles/variables.scss';
-
-    p {
-        color: $grey-light;
-        line-height: 20px;
-        font-size: 14px;
-        margin: 15px 0;
-    }
-
-    #forgot-password {
-        float: right;
-        font-size: 13px;
-        right: 0;
-        margin-bottom: 20px;
-    }
 
     .fade-left {
         animation: fade_in ease-out 150ms forwards; 

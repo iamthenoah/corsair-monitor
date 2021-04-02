@@ -4,7 +4,9 @@
 			<NavigationMenu/>
 		</div>
 		<div>
-			<router-view/>
+			<main>
+				<router-view/>
+			</main>
 		</div>
 	</div>
 </template>

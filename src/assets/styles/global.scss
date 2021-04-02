@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+main {
+    padding-top: 35px;
+    height: 100%;
+}
+
 section {
     margin: 20px 0;
     width: 100%;
@@ -42,7 +47,7 @@ input {
 }
 
 ::placeholder {
-    color: $grey-light;
+    color: $grey;
     opacity: 1;
 }
 
@@ -58,13 +63,21 @@ label {
     user-select: none;
     font-weight: bold;
     font-size: 13px;
-    color: $grey-light;
+    color: $grey;
     font-weight: 500;
 }
 
 ul {
-    color: $grey-light;
+    color: $grey;
     padding-left: 30px;
+}
+
+
+p {
+    color: $grey;
+    line-height: 20px;
+    font-size: 14px;
+    margin: 15px 0;
 }
 
 h1 {
