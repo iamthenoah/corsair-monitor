@@ -3,7 +3,10 @@
 		<div id="nav-container">
 			<NavigationMenu/>
 		</div>
-		<div class="bg-theme">
+		<div>
+			<div class="right">
+				<DarkModeButton/>
+			</div>
 			<main>
 				<router-view/>
 			</main>
@@ -13,9 +16,11 @@
 
 <script>
 import NavigationMenu from '@/components/NavigationMenu.vue';
+import DarkModeButton from '@/components/DarkModeButton.vue';
 
 export default {
     components: {
+        DarkModeButton,
         NavigationMenu,
 	},
 	computed: {
@@ -33,7 +38,6 @@ export default {
 	@import '@/assets/styles/darkMode.scss';
 
 	#app-container { 
-		-webkit-app-region: drag;
 		position: absolute;
 		display: grid;
 		grid-template-columns: 280px auto;
@@ -42,6 +46,7 @@ export default {
 	}
 
 	#nav-container {
+		-webkit-app-region: drag;
 		background: whitesmoke;
 	}
 

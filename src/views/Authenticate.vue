@@ -5,7 +5,7 @@
             <img src="https://www.itl.cat/pngfile/big/45-450360_ice-iphone-x-tumblr-wallpaper-hd.jpg">
             <!-- <img src="http://www.99naturewallpapers.com/admin/assets/images/wallpapers/1366/cold-snow-winter_1366x768.png"> -->
         </div>
-        <div id="auth-form" class="content bg-theme">
+        <main id="auth-form">
             <div id="auth-inputs" class="noselect">
                 <div v-if="showRegisterForm">
                     <RegisterForm />
@@ -20,7 +20,10 @@
             <div id="error-container">
                 <p v-if="error" class="error-msg">{{ error }}</p>
             </div>
-        </div>
+            <div class="bottom right">
+                <DarkModeButton />
+            </div>
+        </main>
     </div>
 </template>
 
@@ -29,12 +32,14 @@
 import LoginForm from '@/components/auth/LoginForm.vue';
 import RegisterForm from '@/components/auth/RegisterForm.vue';
 import ResetPassword from '@/components/auth/ResetPassword.vue';
+import DarkModeButton from '@/components/DarkModeButton.vue';
 
 export default {
     components: {
         LoginForm,
         RegisterForm,
-        ResetPassword
+        ResetPassword,
+        DarkModeButton
     },
     data() {
         return {
@@ -85,6 +90,7 @@ export default {
         width: 50%;
         height: 100%;
         overflow: hidden;
+		-webkit-app-region: drag;
         
         img {
             width: 100%;

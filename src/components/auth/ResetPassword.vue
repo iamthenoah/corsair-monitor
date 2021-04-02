@@ -40,7 +40,7 @@ export default {
     }
 
     #reset-sent {
-        margin-top: 40px;
+        margin-top: 50px;
         font-size: 20px;
         font-weight: 500;
     }
