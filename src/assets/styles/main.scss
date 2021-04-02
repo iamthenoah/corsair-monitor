@@ -6,8 +6,10 @@
     user-select: none;
 }
 
-.btn-action {
+.btn-action,
+.btn {
 	user-select: none;
+	text-transform: capitalize;
 	width: auto;
 	height: 38px;
 	padding: 5px 20px;
@@ -21,7 +23,8 @@
     color: white;
 }
 
-.btn-action:hover {
+.btn-action:hover,
+.btn:hover {
     opacity: 0.9;
 }
 
@@ -29,9 +32,19 @@
     background: $theme;
 }
 
+.btn {
+	background: $grey-lighter;
+	color: $dim;
+}
+
 .bottom {
     position: absolute;
 	bottom: 0;
+}
+
+.right {
+	position: absolute;
+	right: 0;
 }
 
 .large {

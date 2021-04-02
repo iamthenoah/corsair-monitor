@@ -1,5 +1,5 @@
 <template>
-	<div id="app-container">		
+	<div id="app-container">
 		<div id="nav-container">
 			<NavigationMenu/>
 		</div>
@@ -24,10 +24,10 @@ export default {
 
 <style lang="scss">
 	
-    @import '@/assets/styles/variables.scss';
-    @import '@/assets/styles/global.scss';
-    @import '@/assets/styles/main.scss';
-    @import '@/assets/styles/animations.scss';
+	@import '@/assets/styles/variables.scss';
+	@import '@/assets/styles/global.scss';
+	@import '@/assets/styles/main.scss';
+	@import '@/assets/styles/animations.scss';
 
 	#app-container { 
 		-webkit-app-region: drag;

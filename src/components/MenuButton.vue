@@ -1,5 +1,6 @@
 <template>
     <div @click="onClick" class="button">
+        <div v-if="selected" class="selected-indicator"></div>
         <p>{{ text }}</p>
     </div>
 </template>
@@ -21,15 +22,30 @@ export default {
 
 <style lang="scss" scoped>
     
+    @import '@/assets/styles/variables.scss';
+
     .button {
-        width: 100%;
-        height: 50px;
-        background: red;
+        width: 280px;
+        height: 60px;
     }
 
     .button:hover {
-        opacity: 0.5;
+        background: white;
         cursor: pointer;
+    }
+
+    .selected-indicator {
+        height: 100%;
+        width: 5px;
+        background: $theme;
+    }
+
+    p {
+        transform: translateY(100%);
+        font-size: 16px;
+        margin-left: 40px;
+        text-transform: uppercase;
+        font-weight: 500;
     }
 
 </style>

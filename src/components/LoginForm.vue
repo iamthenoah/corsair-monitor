@@ -5,6 +5,7 @@
         <section>
             <input type="text" placeholder="email">
             <input type="text" placeholder="password">
+            <router-link to="/authenticate?form=resetPassword"><a id="forgot-password">forgot your password?</a></router-link>
         </section>
         <section>
             <button @click="Login" class="btn-action large">Sign In</button>
@@ -27,17 +28,18 @@ export default {
     
     @import '@/assets/styles/variables.scss';
 
-    h1 {
-        font-weight: 800;
-        margin-bottom: 15px;
-        font-size: 40px;
-    }
-
     p {
         color: $grey-light;
         line-height: 20px;
         font-size: 14px;
         margin: 15px 0;
+    }
+
+    #forgot-password {
+        float: right;
+        font-size: 13px;
+        right: 0;
+        margin-bottom: 20px;
     }
 
     .fade-right {

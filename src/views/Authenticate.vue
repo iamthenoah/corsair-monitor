@@ -8,6 +8,9 @@
                 <div v-if="showRegisterForm">
                     <RegisterForm />
                 </div>
+                <div v-else-if="showResetPasswordForm">
+                    <ResetPassword />
+                </div>
                 <div v-else>
                     <LoginForm />
                 </div>
@@ -23,11 +26,13 @@
 
 import LoginForm from '@/components/LoginForm.vue';
 import RegisterForm from '@/components/RegisterForm.vue';
+import ResetPassword from '@/components/ResetPassword.vue';
 
 export default {
     components: {
         LoginForm,
-        RegisterForm
+        RegisterForm,
+        ResetPassword
     },
     data() {
         return {
@@ -37,6 +42,9 @@ export default {
     computed: {
         showRegisterForm: function() {
             return this.$route.query.form == 'register';
+        },
+        showResetPasswordForm: function() {
+            return this.$route.query.form == 'resetPassword';
         }
     }
 }

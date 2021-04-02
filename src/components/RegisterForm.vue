@@ -18,12 +18,6 @@
     
     @import '@/assets/styles/variables.scss';
 
-    h1 {
-        font-weight: 800;
-        margin-bottom: 15px;
-        font-size: 40px;
-    }
-
     p {
         color: $grey-light;
         line-height: 20px;

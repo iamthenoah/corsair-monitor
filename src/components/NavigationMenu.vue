@@ -7,8 +7,12 @@
                 <MenuButton route="/wallet" text="My Wallet"/>
             </section>
         </div>
-        <router-link to="/authenticate?type=login">Login</router-link>
-        <router-link to="/authenticate?type=register">Register</router-link>
+        <section class="bottom">
+            <div id="auth-options">
+                <router-link to="/authenticate?form=login"><button class="btn-action large">Login</button></router-link>
+                <router-link to="/authenticate?form=register"><button class="btn-action large">Register</button></router-link>
+            </div>
+        </section>
     </div>
 </template>
 
@@ -18,15 +22,24 @@ import MenuButton from '@/components/MenuButton.vue';
 export default {
     components: {
         MenuButton
-    }
+    },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
 	#nav {
 		position: absolute;
-		top: 35px;
+        padding-top: 35px;
+        height: 100%;
     }
-    
+
+    #auth-options {
+        margin: 0 15px;
+
+        button {
+            margin-top: 10px;
+        }
+    }
+
 </style>
