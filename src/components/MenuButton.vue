@@ -4,8 +4,10 @@
             <div class="selected-indicator-bg"></div>
             <div class="selected-indicator"></div>
         </div>
-        <span class="material-icons">{{ icon }}</span>
-        <h2>{{ text }}</h2>
+        <div :class="{ 'selected-change' : selected }">
+            <span class="material-icons">{{ icon }}</span>
+            <h2>{{ text }}</h2>
+        </div>
     </div>
 </template>
 
@@ -35,12 +37,13 @@ export default {
         height: 60px;
         color: $grey;
         margin-bottom: 10px;
-		-webkit-app-region: no-drag;
+        -webkit-app-region: no-drag;
+        transition: all 100ms ease-in;
     }
 
     .menu-button:hover {
-        color: lighten($theme, 20%);
         cursor: pointer;
+        background: rgba($grey, 0.1);
     }
 
     .selected-indicator {
@@ -59,7 +62,9 @@ export default {
     }
 
     h2 {
-        transform: translateY(100%);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
         font-size: 16px;
         margin-left: 70px;
         text-transform: capitalize;
@@ -71,6 +76,10 @@ export default {
         left: 25px;
         top: 50%;
         transform: translateY(-50%);
+    }
+
+    .selected-change {
+        color: $theme;
     }
 
 </style>

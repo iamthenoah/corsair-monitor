@@ -2,6 +2,12 @@
 	-webkit-app-region: no-drag;
 	width: 100%;
 	padding: 0 20px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.bezels {
+	padding: 5px 40px;
 }
 
 .noselect {
@@ -60,7 +66,7 @@
 
 .invalid-input {
 	border: 2px solid $red;
-	color: $red;
+	color: $red !important;
 }
 
 .invalid-input::placeholder {

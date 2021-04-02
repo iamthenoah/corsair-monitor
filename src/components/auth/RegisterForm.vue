@@ -1,6 +1,6 @@
 <template>
     <div class="fade-left">
-        <h1>Sign up.</h1>
+        <h2>Sign up.</h2>
         <p>Registering is free and allows you to access all of Corsair's services.</p>
         <section>
             <input type="text" placeholder="email">

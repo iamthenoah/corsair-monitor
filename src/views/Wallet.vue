@@ -1,5 +1,6 @@
 <template>
-    <div class="content">
+    <div class="content bezels">
         <h1>WALLET</h1>
+        <hr>
     </div>
 </template>

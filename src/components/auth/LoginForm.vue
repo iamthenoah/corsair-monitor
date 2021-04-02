@@ -1,6 +1,6 @@
 <template>
     <div class="fade-right">
-        <h1>Sign In.</h1>
+        <h2>Sign In.</h2>
         <p>You are current not logged in. Please login to see your ETH wallet value & ethosOS rig stats.</p>
         <section>
             <input type="text" placeholder="email">

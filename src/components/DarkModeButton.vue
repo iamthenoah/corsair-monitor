@@ -1,7 +1,7 @@
 <template>
     <div class="mode-icon-container bg-theme-light" @click="toggleDarkMode()">
         <div v-if="isDarkMode">
-            <span class="material-icons light">light_mode</span>
+            <span class="material-icons">light_mode</span>
         </div>
         <div v-else>
             <span class="material-icons dark">dark_mode</span>
@@ -44,10 +44,6 @@ export default {
         top: 50%;
         transform: translate(-50%, -50%);
         font-size: 20px;
-    }
-
-    .light {
-        color: $yellow !important;
     }
 
     .dark {

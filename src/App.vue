@@ -4,9 +4,6 @@
 			<NavigationMenu/>
 		</div>
 		<div>
-			<div class="right">
-				<DarkModeButton/>
-			</div>
 			<main>
 				<router-view/>
 			</main>
@@ -16,11 +13,9 @@
 
 <script>
 import NavigationMenu from '@/components/NavigationMenu.vue';
-import DarkModeButton from '@/components/DarkModeButton.vue';
 
 export default {
     components: {
-        DarkModeButton,
         NavigationMenu,
 	},
 	computed: {
