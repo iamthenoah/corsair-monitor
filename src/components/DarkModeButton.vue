@@ -29,10 +29,10 @@ export default {
 	@import '@/assets/styles/variables.scss';
 
     .mode-icon-container {
+		-webkit-app-region: no-drag;
         position: relative;
         height: 35px;
         width: 35px;
-        background: whitesmoke;
         margin: 20px;
         border-radius: 5px;
         cursor: pointer;

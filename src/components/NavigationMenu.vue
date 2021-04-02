@@ -1,16 +1,23 @@
 <template>
-    <nav class="bg-theme-light">
+    <div>
         <section class="content">
-            <router-link to="/authenticate?form=login"><button class="btn-action large">Login</button></router-link>
+            <div id="menu-toggle-container" @click="toggleMenu()">
+                <span class="material-icons">menu</span>
+            </div>
         </section>
-        <hr>
-        <MenuButton route="/" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('/')"/>
-        <MenuButton route="/rig" text="Mining Rig" icon="assessment" v-bind:selected="isCurrent('/rig')"/>
-        <MenuButton route="/wallet" text="My Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
-        <div class="bottom">
+        <section>
+            <MenuButton route="/" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('/')"/>
+            <MenuButton route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('/rig')"/>
+            <MenuButton route="/wallet" text="Crypto Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
+            <MenuButton route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('/profile')"/>
+        </section>
+        <div class="bottom large">
+            <div class="content hide-on-collapse">
+                <router-link to="/authenticate?form=login"><button class="btn-action large"><span class="material-icons">login</span>Login</button></router-link>
+            </div>
             <DarkModeButton/>
         </div>
-    </nav>
+    </div>
 </template>
 
 <script>
@@ -22,9 +29,24 @@ export default {
         MenuButton,
         DarkModeButton
     },
+    data() {
+        return {
+            openMenu: true
+        }
+    },
     methods: {
         isCurrent: function(path) {
             return this.$route.path == path;
+        },
+        toggleMenu: function() {
+            this.openMenu = !this.openMenu;
+            document.getElementById('nav-container').style.width = this.openMenu ? '280px' : '80px';
+            document.getElementById('page-container').style.marginLeft = this.openMenu ? '280px' : '80px';
+            document.getElementById('page-container').style.width = this.openMenu ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
+            const els = document.getElementsByClassName('hide-on-collapse')
+            els.forEach(element => {
+                element.style.display = this.openMenu ? '' : 'none';
+            });
         }
     }
 }
@@ -32,10 +54,21 @@ export default {
 
 <style lang="scss" scoped>
 
-	nav {
-		position: absolute;
-        padding-top: 40px;
-        height: 100%;
+    #menu-toggle-container {
+        position: relative;
+        height: 40px;
+        width: 40px;
+        border-radius: 5px;
+        float: right;
+        cursor: pointer;
+
+        span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 28px;
+        }
     }
 
 </style>

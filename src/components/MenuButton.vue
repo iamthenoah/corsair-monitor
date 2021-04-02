@@ -66,14 +66,14 @@ export default {
         top: 50%;
         transform: translateY(-50%);
         font-size: 16px;
-        margin-left: 70px;
+        margin-left: 80px;
         text-transform: capitalize;
         font-weight: 500;
     }
 
     span {
         position: absolute;
-        left: 25px;
+        left: 27.5px;
         top: 50%;
         transform: translateY(-50%);
     }

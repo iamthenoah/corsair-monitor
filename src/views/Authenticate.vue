@@ -6,7 +6,7 @@
             <!-- <img class="fade-left" src="https://wimg.rule34.xxx//images/4022/1dcab858752e45aa0dd6f25bacaa7422.png" alt=""> -->
             <!-- <img class="fade-left" src="https://pbs.twimg.com/media/ExZbWm0U4AIFW8O?format=jpg&name=medium" alt=""> -->
         </div>
-        <main id="auth-form">
+        <main id="auth-form" class="bg-theme">
             <div id="auth-inputs">
                 <div v-if="showRegisterForm">
                     <RegisterForm />
@@ -68,7 +68,7 @@ export default {
 <style lang="scss" scoped>
 
 	@import '@/assets/styles/variables.scss';
-
+    
     #auth-container {
         position: absolute;
         right: 0;
@@ -77,6 +77,7 @@ export default {
         background: white;
         width: 100%;
         height: 100%;
+        overflow: hidden;
     }
 
     #auth-form {

@@ -1,12 +1,10 @@
 <template>
-	<div id="app-container" :class="{ 'darkMode' : isDarkMode }">
-		<div id="nav-container">
+	<div :class="{ 'darkMode' : isDarkMode }">
+		<div class="bg-theme-light" id="nav-container">
 			<NavigationMenu/>
 		</div>
-		<div>
-			<main>
-				<router-view/>
-			</main>
+		<div id="page-container" class="bg-theme">
+			<router-view/>
 		</div>
 	</div>
 </template>
@@ -32,17 +30,24 @@ export default {
 	@import '@/assets/styles/animations.scss';
 	@import '@/assets/styles/darkMode.scss';
 
-	#app-container { 
-		position: absolute;
-		display: grid;
-		grid-template-columns: 280px auto;
-		height: 100%;
-		width: 100%;
-	}
-
 	#nav-container {
 		-webkit-app-region: drag;
-		background: whitesmoke;
+		position: fixed;
+        height: 100%;
+		width: 280px;
+		overflow: hidden;
+        padding-top: 20px;
+		transition: all 200ms ease-out;
+	}
+
+	#page-container {
+		transition: all 200ms ease-out;
+		overflow-y: auto;
+		overflow-x: hidden;
+		width: calc(100% - 280px);
+		padding-top: 40px;
+		height: 100vh;
+		margin-left: 280px;
 	}
 
 </style>

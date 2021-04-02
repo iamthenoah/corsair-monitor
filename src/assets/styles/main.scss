@@ -31,6 +31,19 @@
     color: white;
 }
 
+.btn-action,
+.btn {
+	span {		
+		font-size: 10px;
+		margin-right: 15px;
+		transform: scale(1.75);
+	}
+}
+
+.btn > span {
+	color: $grey !important;
+}
+
 .btn-action:hover,
 .btn:hover {
     opacity: 0.9;
@@ -71,4 +84,12 @@
 
 .invalid-input::placeholder {
 	color: $red !important;
+}
+
+.bg-theme-light {
+	background: whitesmoke;
+}
+
+.bg-theme {
+	background: white;
 }
