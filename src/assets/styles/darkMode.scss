@@ -1,0 +1,22 @@
+.darkMode {
+    p, h1, h2, h3, h4, h5, h6 { 
+        color: white;
+    }
+
+    input {
+        background: $dark;
+        color: white;
+    }
+
+    .bg-theme {
+        background: $darker;
+    }
+
+    .bg-theme-light {
+        background: $dark;
+    }
+
+    ::placeholder {
+        color: white;
+    }
+}

@@ -1,9 +1,9 @@
 <template>
-	<div id="app-container">
+	<div id="app-container" :class="{ 'darkMode' : isDarkMode }">
 		<div id="nav-container">
 			<NavigationMenu/>
 		</div>
-		<div>
+		<div class="bg-theme">
 			<main>
 				<router-view/>
 			</main>
@@ -18,6 +18,9 @@ export default {
     components: {
         NavigationMenu,
 	},
+	computed: {
+		isDarkMode: function() { return this.$store.getters.isDarkModeEnabled; }
+	},
 }
 </script>
 
@@ -27,6 +30,7 @@ export default {
 	@import '@/assets/styles/global.scss';
 	@import '@/assets/styles/main.scss';
 	@import '@/assets/styles/animations.scss';
+	@import '@/assets/styles/darkMode.scss';
 
 	#app-container { 
 		-webkit-app-region: drag;

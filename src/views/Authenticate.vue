@@ -5,7 +5,7 @@
             <img src="https://www.itl.cat/pngfile/big/45-450360_ice-iphone-x-tumblr-wallpaper-hd.jpg">
             <!-- <img src="http://www.99naturewallpapers.com/admin/assets/images/wallpapers/1366/cold-snow-winter_1366x768.png"> -->
         </div>
-        <div id="auth-form" class="content">
+        <div id="auth-form" class="content bg-theme">
             <div id="auth-inputs" class="noselect">
                 <div v-if="showRegisterForm">
                     <RegisterForm />
@@ -54,6 +54,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+	@import '@/assets/styles/variables.scss';
 
     #auth-container {
         position: absolute;
