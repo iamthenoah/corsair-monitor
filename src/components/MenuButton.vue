@@ -34,11 +34,12 @@ export default {
         width: 280px;
         height: 60px;
         color: $grey;
-        margin: 10px 0;
+        margin-bottom: 10px;
+		-webkit-app-region: no-drag;
     }
 
     .menu-button:hover {
-        background: rgba(white, 0.75);
+        color: lighten($theme, 20%);
         cursor: pointer;
     }
 
@@ -52,7 +53,7 @@ export default {
     .selected-indicator-bg {
         position: absolute;
         background: linear-gradient(to right, rgba($theme, 0.1), transparent);
-        width: 10%;
+        width: 50%;
         height: 60px;
         left: 0;
     }

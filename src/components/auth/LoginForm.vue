@@ -28,7 +28,7 @@ export default {
     
     #forgot-password {
         float: right;
-        font-size: 13px;
+        font-size: 14px;
         right: 0;
         margin-bottom: 20px;
     }

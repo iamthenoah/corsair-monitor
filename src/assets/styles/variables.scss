@@ -1,7 +1,6 @@
-$lighter: rgb(80, 80, 80);
-$light: #2a3d55;
-$dark: #23354b;
 $darker: #171a21;
+$dark: lighten($darker, 15%);
+$grey: rgb(126, 126, 126);
 
 $blue: #6085ff;
 $red: #ff554f;
@@ -13,9 +12,6 @@ $yellow: #ffd95a;
 $purple: #c57dff;
 $pink: #fcdbff;
 $link: #92acff;
-
-$grey-lighter: #e7e7e7;
-$grey: rgb(126, 126, 126);
 
 $theme: $cold;
 
