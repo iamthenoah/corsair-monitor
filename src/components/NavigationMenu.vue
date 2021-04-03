@@ -59,6 +59,7 @@ export default {
         border-radius: 5px;
         float: right;
         cursor: pointer;
+        transition: all ease-in 150ms;
 
         span {
             position: absolute;
@@ -68,6 +69,11 @@ export default {
             font-size: 28px;
         }
     }
+
+    #menu-toggle-container:hover {
+        opacity: 0.75;
+    }
+
 
     #main-nav-options {
         height: 65vh;

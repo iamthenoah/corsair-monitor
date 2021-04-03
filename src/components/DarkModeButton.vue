@@ -36,6 +36,11 @@ export default {
         margin: 22.5px;
         border-radius: 5px;
         cursor: pointer;
+        transition: all ease-in 150ms;
+    }
+
+    .mode-icon-container:hover > div > span {
+        opacity: 0.75;
     }
 
     span {

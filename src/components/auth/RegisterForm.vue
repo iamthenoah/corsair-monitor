@@ -18,8 +18,8 @@
                 <p>Optionally, enter your ETH wallet address.</p>
             </div>
         </section>
-        <div class="fade-in" :class="{ 'disabled' : submited }">
-            <div v-if="!step1" id="form-steps">
+        <div :class="{ 'disabled' : submited }">
+            <div v-if="!step1" id="form-steps" class="fade-in">
                 <section>
                     <label>Username</label>
                     <input type="text" placeholder="choose a username" v-model="form.username">
@@ -35,7 +35,7 @@
                     <p>Already have an account? <router-link to="/authenticate?form=login"><a>Sign in</a></router-link>.</p>
                 </section>
             </div>
-            <div v-else-if="!step2" id="form-steps">
+            <div v-else-if="!step2" id="form-steps" class="fade-in">
                 <section>
                     <label>Choose password</label>
                     <input type="password" placeholder="choose password" v-model="form.password[0]">
@@ -51,7 +51,7 @@
                     <p>Go back to previous <a @click="step1 = false">step 1</a>.</p>
                 </section>
             </div>
-            <div v-else id="form-steps">
+            <div v-else id="form-steps" class="fade-in">
                 <section>
                     <label>Mining Address</label>
                     <input type="text" placeholder="address" v-model="form.address">
