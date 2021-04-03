@@ -52,6 +52,8 @@ export default {
 
 <style lang="scss" scoped>
 
+	@import '@/assets/styles/variables.scss';
+
     #menu-toggle-container {
         position: relative;
         height: 40px;
@@ -60,7 +62,8 @@ export default {
         float: right;
         cursor: pointer;
         transition: all ease-in 150ms;
-
+        color: $grey;
+        
         span {
             position: absolute;
             left: 50%;

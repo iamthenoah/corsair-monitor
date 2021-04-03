@@ -55,7 +55,7 @@
                 <section>
                     <label>Mining Address</label>
                     <input type="text" placeholder="address" v-model="form.address">
-                    <p id="ex-address">ex: 3a7aF0a0527C51E322aBbC3Eabfd31b...</p>
+                    <p id="ex-address">ex: 0x3a7aF0a0527C51E322aBbC3Eabfd31b...</p>
                 </section>
                 <section>
                     <button @click="Register()" class="btn-action large">Create Account</button>

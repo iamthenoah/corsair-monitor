@@ -39,13 +39,13 @@ a, p, h1, h2, h3, h4, h5, h6,
         background: $darker;
     }
 
-    .selected-indicator-bg {
-        background: linear-gradient(to right, rgba(white, 0.1), transparent);
-    }
+    // .selected-indicator-bg {
+    //     background: linear-gradient(to right, rgba(white, 0.1), transparent);
+    // }
 
-    .selected-indicator {
-        background: white;
-    }
+    // .selected-indicator {
+    //     background: white;
+    // }
 
     .menu-button:hover {
         background: rgba(white, 0.1);

@@ -36,6 +36,7 @@ export default {
             setTimeout(() => {
                 this.submited = false;
                 this.$emit('submit', false);
+                this.resetEmailSent = true;
                 throw new Error('Invalid email.');
             }, 3000);
         },

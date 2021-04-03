@@ -1,13 +1,11 @@
 <template>
-    <div @click="onClick" class="menu-button noselect">
+    <div @click="onClick" class="menu-button noselect" :class="{ 'selected' : selected }">
         <div v-if="selected">
             <div class="selected-indicator-bg"></div>
             <div class="selected-indicator"></div>
         </div>
-        <div :class="{ 'selected-change' : selected }">
-            <span class="material-icons">{{ icon }}</span>
-            <h2>{{ text }}</h2>
-        </div>
+        <span class="material-icons">{{ icon }}</span>
+        <h2>{{ text }}</h2>
     </div>
 </template>
 
@@ -35,7 +33,7 @@ export default {
         position: relative;
         width: 280px;
         height: 60px;
-        color: $grey;
+        color: $grey !important;
         margin-bottom: 10px;
         -webkit-app-region: no-drag;
         transition: all 100ms ease-in;
@@ -78,8 +76,12 @@ export default {
         transform: translateY(-50%);
     }
 
-    .selected-change {
-        color: $theme;
+    .selected {
+        color: $theme !important;
+
+        // span, h2 {
+        //     color: $theme !important;
+        // }
     }
 
 </style>
