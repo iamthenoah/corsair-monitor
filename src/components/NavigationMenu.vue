@@ -15,7 +15,7 @@
         </section>
         <div class="bottom large">
             <div class="content" :class="{ 'hide-on-collapse' : !openMenu }">
-                <router-link to="/authenticate?form=login"><button class="btn-action large"><span class="material-icons">login</span>Login</button></router-link>
+                <router-link to="/authenticate?form=login"><button class="btn-action large">Login</button></router-link>
             </div>
             <DarkModeButton/>
         </div>

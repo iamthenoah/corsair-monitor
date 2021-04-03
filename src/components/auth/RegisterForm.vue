@@ -1,15 +1,90 @@
 <template>
     <div class="fade-left">
-        <h2>Sign up.</h2>
-        <p>Registering is free and allows you to access all of Corsair's services.</p>
+        <div>
+            <h2>Sign up.</h2>
+            <p>Registering is very easy and can be done in a few simple steps...</p>
+        </div>
         <section>
-            <input type="text" placeholder="email">
-            <input type="text" placeholder="choose password">
-            <input type="text" placeholder="repeat password">
+            <div v-if="!step1">
+                <h4>Step 1 <span style="font-size: 14px">/ 3</span>.</h4>
+                <p>Tell us what your email is and choose a name.</p>
+            </div>
+            <div v-else-if="!step2">
+                <h4>Step 2 <span style="font-size: 14px">/ 3</span>.</h4>
+                <p>Choose a password for your account.</p>
+            </div>
+            <div v-else>
+                <h4>Step 3 <span style="font-size: 14px">/ 3</span>.</h4>
+                <p>Optionally, enter your ETH wallet address.</p>
+            </div>
         </section>
-        <section>
-            <button class="btn-action large">Create Account</button>
-            <p>Already have an account? <router-link to="/authenticate?form=login"><a>Sign in</a></router-link>.</p>
-        </section>
+        <div v-if="!step1" id="form-steps">
+            <section>
+                <input type="text" placeholder="name@domain.com" v-model="form.email">
+                <input type="text" placeholder="choose a username" v-model="form.username">
+            </section>
+            <section>
+                <button @click="step1 = true" class="btn-action large">Next Step<span class="material-icons">navigate_next</span></button>
+                <p>Already have an account? <router-link to="/authenticate?form=login"><a>Sign in</a></router-link>.</p>
+            </section>
+        </div>
+        <div v-else-if="!step2" id="form-steps">
+            <section>
+                <input type="password" placeholder="choose password" v-model="form.password[0]">
+                <input type="password" placeholder="repeat password" v-model="form.password[1]">
+            </section>
+            <section>
+                <button @click="step2 = true" class="btn-action large">Next Step<span class="material-icons">navigate_next</span></button>
+                <p>Go back to previous <a @click="step1 = false">step 1</a>.</p>
+            </section>
+        </div>
+        <div v-else id="form-steps">
+            <section>
+                <input type="password" placeholder="mining address" v-model="form.address">
+                <p id="ex-address">ex: 3a7aF0a0527C51E322aBbC3Eabfd31b...</p>
+            </section>
+            <section>
+                <button @click="Register()" class="btn-action large">Create Account</button>
+                <p>Go back to previous <a @click="step2 = false">step 2</a>.</p>
+            </section>
+        </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            step1: false,
+            step2: false,
+            step3: false,
+            form: {
+                username: '',
+                email: '',
+                password: ['', ''],
+                address: ''
+            }
+        }
+    },
+    methods: {
+        Register: function() {
+            this.$router.push('/');
+        }
+    },
+}
+</script>
+
+<style lang="scss" scoped>
+
+    #form-steps {
+        display: grid;
+        grid-auto-rows: 130px auto;
+        height: 250px;
+        align-items: center;
+    }
+
+    #ex-address {
+        margin: 0;
+    }
+
+</style>

@@ -18,7 +18,7 @@
 export default {
     methods: {
         Login: function() {
-            this.$router.push('/')
+            this.$router.push('/');
         }
     },
 }

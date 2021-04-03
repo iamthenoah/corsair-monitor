@@ -19,6 +19,7 @@ a,
 input,
 button,
 select {
+    -webkit-app-region: no-drag;
     text-decoration: none;
     border: none;
     outline: none;
@@ -73,6 +74,7 @@ ul {
 
 
 p {
+    -webkit-app-region: no-drag;
     color: $grey;
     line-height: 20px;
     font-size: 14px;
@@ -112,5 +114,4 @@ h4 {
     font-weight: 500;
     margin-bottom: 15px;
     font-size: 20px;
-    color: $grey;
 }

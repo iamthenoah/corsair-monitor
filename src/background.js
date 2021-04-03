@@ -14,10 +14,12 @@ async function createWindow() {
 	const win = new BrowserWindow({
 		width: 1200,
 		height: 750,
+		minWidth: 800,
+		minHeight: 550,
 		titleBarStyle: "hiddenInset",
 		webPreferences: {
 			nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
-			// devTools: false
+			devTools: false
 		}
 	});
 
