@@ -5,7 +5,7 @@ const ethosEndpoint = 'ethosdistro.com';
 
 
 const state = {
-    rigs: [],
+    rigs: null,
 };
 
 const getters = {
@@ -13,25 +13,19 @@ const getters = {
 };
 
 const actions = {
-    async ADD_RIG({ commit }, rigId) {
+    async GET_RIGS({ commit }, rigId) {
         setTimeout(async() => {            
             const res = await axios.get(`http://${rigId}.${ethosEndpoint}/?json=yes`);
-            const rig = res.data;
-            commit('ADD', rig);
-        }, 3000);
+            commit('SET', res.data);
+        }, 10);
     },
 
     RESET({ commit }) {
-        commit('SET', []);
+        commit('SET', null);
     }
 };
 
 const mutations = {
-    ADD(state, rig) {
-        if (state.rigs.indexOf(rig) == -1)
-            state.rigs.push(rig);
-    },
-
     SET(state, rigs) {
         state.rigs = rigs;
     }

@@ -1,27 +1,50 @@
 <template>
     <div class="content bezels">
         <h1>Rig Monitoring</h1>
-        <p>{{ Rigs }}</p>
-        <LoadingBar v-if="Rigs.length === 0"/>
+        <h4>Mining Rigs</h4>
+        <div id="rig-container">
+
+            <div v-if="Rigs">
+                <div v-for="rig in Object.entries(Rigs)" :key="Object.keys(rig)[0]">
+                    <RigCard
+                        :name="rig[0]" 
+                        :algo="rig[1]['miner']" 
+                        :state="rig[1]['condition']" 
+                        :temp="rig[1]['temp']"
+                        :gpus="rig[1]['gpus']" 
+                        :hash="rig[1]['miner_hashes']" 
+                        :vram="rig[1]['vramsize']" 
+                        :uptime="rig[1]['miner_secs']" 
+                    />
+                    <!-- <p>{{ rig[0] }}</p>
+                    <p>{{ rig[1] }}</p> -->
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 
-import LoadingBar from '@/components/LoadingBar.vue';
+import RigCard from '@/components/RigCard';
 
 export default {
     components: {
-        LoadingBar,
+        RigCard,
     },
     mounted() {
         this.$store.dispatch('RESET');
-        this.$store.dispatch('ADD_RIG', '7f217d');
+        this.$store.dispatch('GET_RIGS', '7f217d');
     },
     computed: {
         Rigs: function() {
-            return this.$store.getters.Rigs;
+            const r = this.$store.getters.Rigs;
+            return r ? r.rigs : null;
         }
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    
+</style>

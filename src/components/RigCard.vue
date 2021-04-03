@@ -1,12 +1,13 @@
 <template>
-    <div class="card-container noselect content">
-        <p class="name">{{ name }}</p>
-        <p class="address">0x{{ address }}</p>
-        <h3>{{ value }}</h3>
-        <div class="bottom right">
-            <p id="eth">{{ ETH }} ETH</p>
-        </div>
-        <img :src="theme">
+    <div class="rig-card-container bg-theme-light noselect">
+        <p>{{ name }}</p>
+        <p>{{ algo }}</p>
+        <p>{{ state }}</p>
+        <p>{{ temp }}</p>
+        <p>{{ hash }}</p>
+        <p>{{ vram }}</p>
+        <p>{{ gpus }}</p>
+        <p>{{ uptime }}</p>
     </div>
 </template>
 
@@ -14,10 +15,13 @@
 export default {
     props: {
         name: String,
-        address: String,
-        theme: String,
-        value: String,
-        ETH: Number
+        algo: String,
+        state: String,
+        temp: String,
+        hash: String,
+        vram: String,
+        gpus: String,
+        uptime: Number
     }
 }
 </script>
@@ -26,21 +30,16 @@ export default {
     
 	@import '@/assets/styles/variables.scss';
 
-    .card-container {
+    .rig-card-container {
         position: relative;
         padding: 0 20px;
-        width: 350px;
-        height: 230px;
+        width: 380px;
+        height: 250px;
         border-radius: 15px;
         overflow: hidden;
         cursor: pointer;
         transition: all ease-in-out 300ms;
-        transform: scale(1);
-    }
-
-    .card-container:hover {
-        box-shadow: 0 15px 20px -10px rgba(black, 0.5);
-        transform: scale(1.02);
+        box-shadow: 0 0 10px 10px rgba(black, 0.05);
     }
 
     .name {
@@ -57,10 +56,6 @@ export default {
         white-space: nowrap;
     }
 
-    p, h3 {
-        color: white;
-    }
-
     h3 {
         font-family: 'Montserrat';
     }
@@ -73,12 +68,8 @@ export default {
         object-fit: cover;
         width: 100%;
         height: 100%;
-        filter: blur(2px);
+        filter: blur(3px);
         z-index: -1;
-    }
-
-    #eth {
-        margin-right: 20px;
     }
 
 </style>

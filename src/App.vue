@@ -5,7 +5,7 @@
 				<NavigationMenu/>
 			</div>
 		</div>
-		<div class="bg-theme">
+		<div class="bg-theme-dark">
 			<div id="page-container">
 				<router-view/>
 			</div>

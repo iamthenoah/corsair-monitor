@@ -48,7 +48,7 @@
                         :class="{ 'disabled' : form.password[0].length === 0 || form.password[1].length === 0}" 
                         class="btn-action large"
                     >Next Step<span class="material-icons">navigate_next</span></button>
-                    <p>Go back to previous <a @click="step1 = false">step 1</a>.</p>
+                    <p>Go back to <a @click="step1 = false">step 1</a>.</p>
                 </section>
             </div>
             <div v-else id="form-steps" class="fade-in">
@@ -59,7 +59,7 @@
                 </section>
                 <section>
                     <button @click="Register()" class="btn-action large">Create Account</button>
-                    <p>Go back to previous <a @click="step2 = false">step 2</a>.</p>
+                    <p>Go back to <a @click="step2 = false">step 2</a>.</p>
                 </section>
             </div>
         </div>

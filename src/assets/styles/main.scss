@@ -10,6 +10,16 @@
 	padding: 0px 5% 5%;
 }
 
+.bg-theme-light,
+.bg-theme-light-opposite {
+	background: white;
+}
+
+.bg-theme-dark,
+.bg-theme-dark-opposite {
+	background: whitesmoke;
+}
+
 .noselect {
     user-select: none;
 }
@@ -86,17 +96,9 @@
 	color: $red !important;
 }
 
-.bg-theme-light {
-	background: whitesmoke;
-}
-
-.bg-theme {
-	background: white;
-}
-
 .disabled {
 	pointer-events: none !important;
-	opacity: 0.75 !important;
+	opacity: 0.5 !important;
 	user-select: none !important;
 }
 

@@ -1,12 +1,12 @@
 <template>
     <div id="auth-container">
-        <div id="auth-banner" class="noselect bg-theme">
+        <div id="auth-banner" class="noselect bg-theme-light-opposite">
             <!-- <img class="fade-left" src="https://www.sia-partners.com/sites/default/files/offers/cover_picture/2020-07/iStock-1145592947-1_1.jpg"> -->
             <img class="fade-left" src="https://www.itl.cat/pngfile/big/45-450360_ice-iphone-x-tumblr-wallpaper-hd.jpg">
             <!-- <img class="fade-left" src="https://wimg.rule34.xxx//images/4022/1dcab858752e45aa0dd6f25bacaa7422.png" alt=""> -->
             <!-- <img class="fade-left" src="https://pbs.twimg.com/media/ExZbWm0U4AIFW8O?format=jpg&name=medium" alt=""> -->
         </div>
-        <main id="auth-form" class="bg-theme">
+        <main id="auth-form" class="bg-theme-light-opposite">
             <div id="auth-inputs">
                 <div v-if="showRegisterForm">
                     <RegisterForm @submit="submitedForm($event)" />
@@ -22,7 +22,7 @@
                 <p v-if="error" class="error-msg">{{ error }}</p>
             </div>
             <div class="bottom right">
-                <DarkModeButton />
+                <DarkModeButton backgroundClass="bg-theme-dark-opposite"/>
             </div>
             <LoadingBar v-if="submit"/>
         </main>
