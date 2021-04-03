@@ -6,13 +6,15 @@
             </div>
         </section>
         <section>
-            <MenuButton route="/" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('/')"/>
-            <MenuButton route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('/rig')"/>
-            <MenuButton route="/wallet" text="Crypto Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
-            <MenuButton route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('/profile')"/>
+            <div id="main-nav-options">
+                <MenuButton route="/" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('/')"/>
+                <MenuButton route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('/rig')"/>
+                <MenuButton route="/wallet" text="Crypto Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
+                <MenuButton route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('/profile')"/>
+            </div>
         </section>
         <div class="bottom large">
-            <div class="content hide-on-collapse">
+            <div class="content" :class="{ 'hide-on-collapse' : !openMenu }">
                 <router-link to="/authenticate?form=login"><button class="btn-action large"><span class="material-icons">login</span>Login</button></router-link>
             </div>
             <DarkModeButton/>
@@ -43,10 +45,6 @@ export default {
             document.getElementById('nav-container').style.width = this.openMenu ? '280px' : '80px';
             document.getElementById('page-container').style.marginLeft = this.openMenu ? '280px' : '80px';
             document.getElementById('page-container').style.width = this.openMenu ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
-            const els = document.getElementsByClassName('hide-on-collapse')
-            els.forEach(element => {
-                element.style.display = this.openMenu ? '' : 'none';
-            });
         }
     }
 }
@@ -69,6 +67,16 @@ export default {
             transform: translate(-50%, -50%);
             font-size: 28px;
         }
+    }
+
+    #main-nav-options {
+        height: 65vh;
+        width: 100%;
+        overflow: auto;
+    }
+
+    .hide-on-collapse {
+        display: none;
     }
 
 </style>

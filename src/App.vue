@@ -1,10 +1,14 @@
 <template>
 	<div :class="{ 'darkMode' : isDarkMode }">
-		<div class="bg-theme-light" id="nav-container">
-			<NavigationMenu/>
+		<div id="nav-container">
+			<div class="bg-theme-light" id="nav-content">
+				<NavigationMenu/>
+			</div>
 		</div>
-		<div id="page-container" class="bg-theme">
-			<router-view/>
+		<div class="bg-theme">
+			<div id="page-container">
+				<router-view/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -33,11 +37,16 @@ export default {
 	#nav-container {
 		-webkit-app-region: drag;
 		position: fixed;
-        height: 100%;
+        height: 100vh;
 		width: 280px;
 		overflow: hidden;
-        padding-top: 20px;
 		transition: all 200ms ease-out;
+	}
+
+	#nav-content {
+        padding-top: 20px;
+		width: 100%;
+		height: 100vh;
 	}
 
 	#page-container {
