@@ -33,7 +33,7 @@ export default {
         position: relative;
         height: 35px;
         width: 35px;
-        margin: 20px;
+        margin: 22.5px;
         border-radius: 5px;
         cursor: pointer;
     }
