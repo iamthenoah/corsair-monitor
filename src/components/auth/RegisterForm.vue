@@ -21,10 +21,10 @@
         <div :class="{ 'disabled' : submited }">
             <div v-if="!step1" id="form-steps" class="fade-in">
                 <section>
-                    <label>Username</label>
-                    <input type="text" placeholder="choose a username" v-model="form.username">
                     <label>Email</label>
                     <input type="text" placeholder="name@domain.com" v-model="form.email">
+                    <label>Username</label>
+                    <input type="text" placeholder="choose a username" v-model="form.username">
                 </section>
                 <section>
                     <button 

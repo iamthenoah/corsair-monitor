@@ -36,7 +36,6 @@ export default {
         color: $grey !important;
         margin-bottom: 10px;
         -webkit-app-region: no-drag;
-        transition: all 100ms ease-in;
     }
 
     .menu-button:hover {

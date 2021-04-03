@@ -13,12 +13,11 @@ a, p, h1, h2, h3, h4, h5, h6,
 .darkMode {
 
     h1, h2, h3, h4, h5, h6, label,
-    ::placeholder,
     .material-icons { 
         color: white;
     }
 
-    p { 
+    ::placeholder, p { 
         color: rgba(white, 0.75);
     }
 

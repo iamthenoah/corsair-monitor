@@ -11,6 +11,7 @@
                 <p>Didn't receive anything? <a @click="resetEmailSent = false">Re-send email</a>.</p>
             </div>
             <div v-else >
+                <label>Email</label>
                 <input type="text" placeholder="current email" v-model="email">
                 <button @click="sendResetLink()" class="btn large">Send Reset Email</button>
             </div>
@@ -49,7 +50,7 @@ export default {
     #reset-form {
         display: grid;
         grid-auto-rows: 40% auto 5%;
-        height: 280px;
+        height: 300px;
     }
 
 </style>

@@ -11,7 +11,7 @@ const routes = [
 	{
 		path: '/rig',
 		name: 'Rig',
-		component: () => import('../views/Rig.vue'),
+		component: () => import('../views/RigMonitor.vue'),
 		// meta: { requiresAuth: true }
 	},	
 	{

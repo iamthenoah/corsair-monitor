@@ -33,19 +33,23 @@ export default {
     },
     data() {
         return {
-            openMenu: true
+            openMenu: null
         }
+    },
+    mounted() {
+        this.toggleMenu(!this.$store.getters.isMenuOpened);
     },
     methods: {
         isCurrent: function(path) {
             return this.$route.path == path;
         },
-        toggleMenu: function() {
-            this.openMenu = !this.openMenu;
-            document.getElementById('nav-container').style.width = this.openMenu ? '280px' : '80px';
-            document.getElementById('page-container').style.marginLeft = this.openMenu ? '280px' : '80px';
-            document.getElementById('page-container').style.width = this.openMenu ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
-        }
+        toggleMenu: function(opened = this.$store.getters.isMenuOpened) {
+            this.$store.dispatch('TOGGLE_MENU', !opened);
+            this.openMenu = opened;
+            document.getElementById('nav-container').style.width = opened ? '280px' : '80px';
+            document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
+            document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
+        },
     }
 }
 </script>

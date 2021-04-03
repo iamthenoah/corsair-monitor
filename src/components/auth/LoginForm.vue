@@ -4,7 +4,9 @@
         <p>You are current not logged in. Please login to see your ETH wallet value & ethosOS rig stats.</p>
         <div :class="{ 'disabled' : submited }">
             <section>
-                <input type="text" placeholder="email">
+                <label>Email</label>
+                <input type="text" placeholder="name@domain.com">
+                <label>Password</label>
                 <input type="text" placeholder="password">
                 <router-link to="/authenticate?form=resetPassword"><a id="forgot-password">forgot password?</a></router-link>
             </section>
