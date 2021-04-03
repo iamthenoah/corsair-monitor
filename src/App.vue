@@ -41,6 +41,7 @@ export default {
 		width: 280px;
 		overflow: hidden;
 		transition: all 200ms ease-out;
+        box-shadow: 5px 0px 15px -10px rgba(black, 0.5);
 	}
 
 	#nav-content {

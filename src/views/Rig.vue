@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
-        <h1>MINING RIG</h1>
+    <div class="content bezels">
+        <h1>Rig Monitoring</h1>
     </div>
 </template>

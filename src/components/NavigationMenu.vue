@@ -9,7 +9,7 @@
             <div id="main-nav-options">
                 <MenuButton route="/" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('/')"/>
                 <MenuButton route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('/rig')"/>
-                <MenuButton route="/wallet" text="Crypto Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
+                <MenuButton route="/wallet" text="Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
                 <MenuButton route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('/profile')"/>
             </div>
         </section>

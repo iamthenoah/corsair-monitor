@@ -1,5 +1,5 @@
 <template>
-    <div class="content">
-        <h1>DASHBOARD</h1>
+    <div class="content bezels">
+        <h1>Dashboard</h1>
     </div>
 </template>

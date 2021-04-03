@@ -1,5 +1,5 @@
 <template>
-    <div class="card-container">
+    <div class="card-container noselect">
         <p class="name">{{ name }}</p>
         <p class="address">0x{{ address }}</p>
         <h3>{{ value }}</h3>
