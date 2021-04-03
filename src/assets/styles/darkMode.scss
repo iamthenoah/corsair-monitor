@@ -1,6 +1,6 @@
 // include all element that require transition when toggling dark theme
 
-input, button, span,
+input, button, span, label,
 a, p, h1, h2, h3, h4, h5, h6,
 .bg-theme,
 .bg-theme-light,
@@ -12,8 +12,14 @@ a, p, h1, h2, h3, h4, h5, h6,
 
 .darkMode {
 
-    p, h1, h2, h3, h4, h5, h6 { 
+    h1, h2, h3, h4, h5, h6, label,
+    ::placeholder,
+    .material-icons { 
         color: white;
+    }
+
+    p { 
+        color: rgba(white, 0.75);
     }
 
     input {
@@ -31,14 +37,6 @@ a, p, h1, h2, h3, h4, h5, h6,
 
     .bg-theme {
         background: $darker;
-    }
-
-    ::placeholder {
-        color: white;
-    }
-
-    .material-icons {
-        color: white;
     }
 
     .selected-indicator-bg {

@@ -9,13 +9,13 @@
         <main id="auth-form" class="bg-theme">
             <div id="auth-inputs">
                 <div v-if="showRegisterForm">
-                    <RegisterForm />
+                    <RegisterForm @submit="submitedForm($event)" />
                 </div>
                 <div v-else-if="showResetPasswordForm">
-                    <ResetPassword />
+                    <ResetPassword @submit="submitedForm($event)" />
                 </div>
                 <div v-else>
-                    <LoginForm />
+                    <LoginForm @submit="submitedForm($event)" />
                 </div>
             </div>
             <div id="error-container">
@@ -24,6 +24,7 @@
             <div class="bottom right">
                 <DarkModeButton />
             </div>
+            <LoadingBar v-if="submit"/>
         </main>
     </div>
 </template>
@@ -34,17 +35,20 @@ import LoginForm from '@/components/auth/LoginForm.vue';
 import RegisterForm from '@/components/auth/RegisterForm.vue';
 import ResetPassword from '@/components/auth/ResetPassword.vue';
 import DarkModeButton from '@/components/DarkModeButton.vue';
+import LoadingBar from '@/components/LoadingBar.vue';
 
 export default {
     components: {
         LoginForm,
         RegisterForm,
         ResetPassword,
-        DarkModeButton
+        DarkModeButton,
+        LoadingBar
     },
     data() {
         return {
-            error: null
+            error: null,
+            submit: false,
         }
     },
     computed: {
@@ -55,12 +59,18 @@ export default {
             return this.$route.query.form == 'resetPassword';
         }
     },
+    methods: {
+        submitedForm: function(submited) {
+            this.submit = submited;
+        }
+    },
     errorCaptured(err, vm, info) {
+        this.submit = false;
         this.error = err.message;
         setTimeout(() => {
             this.error = null
         }, 3000);
-    }
+    },
 }
 
 </script>
