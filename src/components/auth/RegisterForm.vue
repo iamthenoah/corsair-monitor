@@ -24,7 +24,11 @@
                 <input type="text" placeholder="choose a username" v-model="form.username">
             </section>
             <section>
-                <button @click="step1 = true" class="btn-action large">Next Step<span class="material-icons">navigate_next</span></button>
+                <button 
+                    @click="step1 = true" 
+                    :class="{ 'disabled' : form.email.length === 0 || form.username.length === 0}" 
+                    class="btn-action large"
+                >Next Step<span class="material-icons">navigate_next</span></button>
                 <p>Already have an account? <router-link to="/authenticate?form=login"><a>Sign in</a></router-link>.</p>
             </section>
         </div>
@@ -34,7 +38,11 @@
                 <input type="password" placeholder="repeat password" v-model="form.password[1]">
             </section>
             <section>
-                <button @click="step2 = true" class="btn-action large">Next Step<span class="material-icons">navigate_next</span></button>
+                <button 
+                    @click="step2 = true" 
+                    :class="{ 'disabled' : form.password[0].length === 0 || form.password[1].length === 0}" 
+                    class="btn-action large"
+                >Next Step<span class="material-icons">navigate_next</span></button>
                 <p>Go back to previous <a @click="step1 = false">step 1</a>.</p>
             </section>
         </div>
