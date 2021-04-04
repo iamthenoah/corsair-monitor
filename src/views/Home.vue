@@ -9,17 +9,6 @@
 			<router-view class="fade-in"/>
 		</div>
 	</div>
-
-
-
-		<!-- <div>
-			<NavigationMenu/>
-		</div>
-		<div class="bg-theme-dark">
-			<div id="home-main-container">
-				<AuthPrompt v-if="isAuthed" />
-			</div>
-		</div> -->
 </template>
 
 <script>
