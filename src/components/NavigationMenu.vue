@@ -11,7 +11,7 @@
                 <MenuButton @click="toggleMenu(false)" route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('rig')"/>
                 <MenuButton @click="toggleMenu(false)" route="/wallet" text="Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('wallet')"/>
                 <MenuButton @click="toggleMenu(false)" route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('profile')"/>
-                <MenuButton @click="toggleMenu(false)" route="/authenticate?form=login" text="Login" icon="login" v-bind:selected="isCurrent('authenticate')"/>
+                <MenuButton @click="toggleMenu(false)" route="/authenticate" text="Login" icon="login" v-bind:selected="isCurrent('authenticate')"/>
             </div>
         </section>
         <div class="bottom large">

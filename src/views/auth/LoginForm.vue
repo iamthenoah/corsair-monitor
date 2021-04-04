@@ -5,9 +5,9 @@
         <div :class="{ 'disabled' : submited }">
             <section>
                 <label>Email</label>
-                <input type="text" placeholder="name@domain.com">
+                <input type="text" placeholder="name@domain.com" v-model="form.email">
                 <label>Password</label>
-                <input type="text" placeholder="password">
+                <input type="text" placeholder="password" v-model="form.password">
                 <router-link to="/authenticate?form=resetPassword"><a id="forgot-password">forgot password?</a></router-link>
             </section>
             <section>
@@ -24,6 +24,10 @@ export default {
     data() {
         return {
             submited: false,
+            form: {
+                email: '',
+                password: ''
+            }
         }
     },
     methods: {
