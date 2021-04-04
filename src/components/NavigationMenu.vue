@@ -7,17 +7,14 @@
         </section>
         <section>
             <div id="main-nav-options">
-                <MenuButton @click="toggleMenu(false)" route="/" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('/')"/>
-                <MenuButton @click="toggleMenu(false)" route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('/rig')"/>
-                <MenuButton @click="toggleMenu(false)" route="/wallet" text="Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
-                <MenuButton @click="toggleMenu(false)" route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('/profile')"/>
+                <MenuButton @click="toggleMenu(false)" route="/dashboard" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('dashboard')"/>
+                <MenuButton @click="toggleMenu(false)" route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('rig')"/>
+                <MenuButton @click="toggleMenu(false)" route="/wallet" text="Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('wallet')"/>
+                <MenuButton @click="toggleMenu(false)" route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('profile')"/>
+                <MenuButton @click="toggleMenu(false)" route="/authenticate?form=login" text="Login" icon="login" v-bind:selected="isCurrent('authenticate')"/>
             </div>
         </section>
         <div class="bottom large">
-            <div class="content" :class="{ 'hide-on-collapse' : !openMenu }">
-                <router-link to="/authenticate?form=login"><button class="btn-action large">Login</button></router-link>
-                <router-link to="/authenticate?form=register"><button class="btn large">Register</button></router-link>
-            </div>
             <DarkModeButton/>
         </div>
     </div>
@@ -32,24 +29,16 @@ export default {
         MenuButton,
         DarkModeButton
     },
-    data() {
-        return {
-            openMenu: null
-        }
-    },
     mounted() {
         this.toggleMenu(!this.$store.getters.isMenuOpened);
     },
     methods: {
-        isCurrent: function(path) {
-            return this.$route.path == path;
-        },
+        isCurrent: function(path) { return this.$route.path.includes(path); },
         toggleMenu: function(opened = this.$store.getters.isMenuOpened) {
-            this.openMenu = opened;
             this.$store.dispatch('TOGGLE_MENU', !opened);
-            document.getElementById('nav-content').style.width = opened ? '280px' : '80px';
-            document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
-            document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
+            document.getElementById('nav-container').style.width = opened ? '280px' : '80px';
+            // document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
+            // document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
         },
     }
 }
@@ -60,11 +49,11 @@ export default {
 	@import '@/assets/styles/variables.scss';
 
     #nav-content {
+        position: fixed;
         padding-top: 20px;
 		width: 100%;
         height: 100vh;
         overflow: hidden;
-        transition: all 150ms ease-out !important;
 	}
 
     #menu-toggle-container {

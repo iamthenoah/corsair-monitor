@@ -15,7 +15,7 @@
                 <input type="text" placeholder="current email" v-model="email">
                 <button @click="sendResetLink()" class="btn large">Send Reset Email</button>
             </div>
-            <p class="bottom">go back to <router-link to="/authenticate?form=login"><a>login</a></router-link>.</p>
+            <p class="bottom">Go back to <router-link to="/authenticate?form=login"><a>login</a></router-link>.</p>
         </div>
     </div>
 </template>
@@ -49,8 +49,8 @@ export default {
 
     #reset-form {
         display: grid;
-        grid-auto-rows: 40% auto 5%;
-        height: 300px;
+        grid-auto-rows: auto 190px auto;
+        height: 330px;
     }
 
 </style>

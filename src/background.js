@@ -15,7 +15,7 @@ async function createWindow() {
 		width: 1200,
 		height: 750,
 		minWidth: 800,
-		minHeight: 550,
+		minHeight: 600,
 		titleBarStyle: "hiddenInset",
 		webPreferences: {
 			nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,

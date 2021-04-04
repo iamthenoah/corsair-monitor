@@ -8,15 +8,7 @@
         </div>
         <main id="auth-form" class="bg-theme-light-opposite">
             <div id="auth-inputs">
-                <div v-if="showRegisterForm">
-                    <RegisterForm @submit="submitedForm($event)" />
-                </div>
-                <div v-else-if="showResetPasswordForm">
-                    <ResetPassword @submit="submitedForm($event)" />
-                </div>
-                <div v-else>
-                    <LoginForm @submit="submitedForm($event)" />
-                </div>
+                <router-view @submit="submitedForm(true)"></router-view>
             </div>
             <div id="error-container">
                 <p v-if="error" class="error-msg">{{ error }}</p>
@@ -31,17 +23,11 @@
 
 <script>
 
-import LoginForm from '@/components/auth/LoginForm.vue';
-import RegisterForm from '@/components/auth/RegisterForm.vue';
-import ResetPassword from '@/components/auth/ResetPassword.vue';
 import DarkModeButton from '@/components/DarkModeButton.vue';
 import LoadingBar from '@/components/LoadingBar.vue';
 
 export default {
     components: {
-        LoginForm,
-        RegisterForm,
-        ResetPassword,
         DarkModeButton,
         LoadingBar
     },
@@ -51,25 +37,15 @@ export default {
             submit: false,
         }
     },
-    computed: {
-        showRegisterForm: function() {
-            return this.$route.query.form == 'register';
-        },
-        showResetPasswordForm: function() {
-            return this.$route.query.form == 'resetPassword';
-        }
-    },
     methods: {
         submitedForm: function(submited) {
-            this.submit = submited;
+            this.submit = submited; 
+            this.error = null; 
         }
     },
     errorCaptured(err, vm, info) {
         this.submit = false;
         this.error = err.message;
-        setTimeout(() => {
-            this.error = null
-        }, 3000);
     },
 }
 
@@ -85,8 +61,8 @@ export default {
         top: 0;
         z-index: 100;
         background: white;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         overflow: hidden;
     }
 
