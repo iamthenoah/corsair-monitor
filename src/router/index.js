@@ -3,41 +3,55 @@ import store from '../store';
 
 const routes = [
 	{
-		path: '/dashboard',
-		name: 'Dashboard',
-		component: () => import('../views/Dashboard.vue'),
-		meta: { 
-			// requiresAuth: true 
-		}
+		path: '/',
+		component: () => import('../views/Home.vue'),
+		meta: {
+			redirect: {
+				from: '/',
+				to: '/dashboard'
+			}
+		},
+		children: [
+			{
+				path: '/dashboard',
+				component: () => import('../views/home/Dashboard.vue'),
+				meta: { 
+					// requiresAuth: true 
+				}		
+			},
+			{
+				path: '/rig',
+				component: () => import('../views/home/RigMonitor.vue'),
+				meta: { 
+					// requiresAuth: true 
+				}		
+			},
+			{
+				path: '/wallet',
+				component: () => import('../views/home/Wallet.vue'),
+				meta: { 
+					// requiresAuth: true 
+				}		
+			},
+			{
+				path: '/profile',
+				component: () => import('../views/home/Profile.vue'),
+				meta: { 
+					// requiresAuth: true 
+				}		
+			},
+			{
+				path: '/dashboard',
+				component: () => import('../views/home/Dashboard.vue'),
+				meta: { 
+					// requiresAuth: true 
+				}		
+			},
+		]
 	},
 	{
-		path: '/rig',
-		name: 'Rig',
-		component: () => import('../views/RigMonitor.vue'),
-		meta: { 
-			// requiresAuth: true 
-		}
-	},	
-	{
-		path: '/wallet',
-		name: 'Wallet',
-		component: () => import('../views/Wallet.vue'),
-		meta: { 
-			// requiresAuth: true 
-		}
-	},	
-	{
-		path: '/profile',
-		name: 'Profile',
-		component: () => import('../views/Profile.vue'),
-		meta: { 
-			// requiresAuth: true 
-		}
-	},	
-	{
 		path: '/authenticate',
-		name: 'Authenticate',
-		component: () => import('../views/Authenticate.vue'),
+		component: () => import('../views/Auth.vue'),
 		meta: {
 			navigation: false
 		},
@@ -68,9 +82,12 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.matched.some((record) => record.meta.requiresAuth))
-		if (!store.getters.isAuthenticated) return next('/authenticate?form=login');
-    next();
+    if (to.matched.some(r => r.meta.requiresAuth))
+		if (!store.getters.isAuthenticated) return next('/authenticate');
+	if (to.matched.some(r => r.meta.redirect))
+		if (to.path === to.meta.redirect.from)
+			return next(to.meta.redirect.to);
+    return next();
 });
 
 export default router;

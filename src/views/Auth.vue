@@ -8,7 +8,7 @@
         </div>
         <main id="auth-form" class="bg-theme-light-opposite">
             <div id="auth-inputs">
-                <router-view @submit="submitedForm(true)"></router-view>
+                <router-view @submit="onSubmit($event)" @success="onSuccess()"></router-view>
             </div>
             <div id="error-container">
                 <p v-if="error" class="error-msg">{{ error }}</p>
@@ -38,9 +38,12 @@ export default {
         }
     },
     methods: {
-        submitedForm: function(submited) {
+        onSubmit: function(submited) {
             this.submit = submited; 
             this.error = null; 
+        },
+        onSuccess: function() {
+            this.$router.push('/dashboard');
         }
     },
     errorCaptured(err, vm, info) {

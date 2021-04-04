@@ -10,8 +10,8 @@
                 <MenuButton @click="toggleMenu(false)" route="/dashboard" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('dashboard')"/>
                 <MenuButton @click="toggleMenu(false)" route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('rig')"/>
                 <MenuButton @click="toggleMenu(false)" route="/wallet" text="Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('wallet')"/>
-                <MenuButton @click="toggleMenu(false)" route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('profile')"/>
-                <MenuButton @click="toggleMenu(false)" route="/authenticate" text="Login" icon="login" v-bind:selected="isCurrent('authenticate')"/>
+                <MenuButton v-if="isAuthed" @click="toggleMenu(false)" route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('profile')"/>
+                <MenuButton v-else @click="toggleMenu(false)" route="/authenticate" text="Login / Register" icon="login" v-bind:selected="isCurrent('authenticate')"/>
             </div>
         </section>
         <div class="bottom large">
@@ -29,6 +29,9 @@ export default {
         MenuButton,
         DarkModeButton
     },
+    computed: {
+		isAuthed: function() { return this.$store.getters.isAuthenticated; },
+    },
     mounted() {
         this.toggleMenu(!this.$store.getters.isMenuOpened);
     },
@@ -37,8 +40,8 @@ export default {
         toggleMenu: function(opened = this.$store.getters.isMenuOpened) {
             this.$store.dispatch('TOGGLE_MENU', !opened);
             document.getElementById('nav-container').style.width = opened ? '280px' : '80px';
-            // document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
-            // document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
+            document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
+            document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
         },
     }
 }
@@ -61,7 +64,6 @@ export default {
         height: 40px;
         width: 40px;
         border-radius: 5px;
-        float: right;
         cursor: pointer;
         transition: all ease-in 150ms;
         color: $grey;

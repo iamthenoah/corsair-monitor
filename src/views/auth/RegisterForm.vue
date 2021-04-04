@@ -32,7 +32,7 @@
                         :class="{ 'disabled' : form.email.length === 0 || form.username.length === 0}" 
                         class="btn-action large"
                     >Next Step<span class="material-icons">navigate_next</span></button>
-                    <p>Already have an account? <router-link to="/authenticate?form=login"><a>Sign in</a></router-link>.</p>
+                    <p>Already have an account? <router-link to="/authenticate/login"><a>Sign in</a></router-link>.</p>
                 </section>
             </div>
             <div v-else-if="!step2" id="form-steps" class="fade-in">
@@ -68,7 +68,7 @@
 
 <script>
 export default {
-    emits: ['submit'],
+    emits: ['submit', 'success'],
     data() {
         return {
             step1: false,
@@ -86,10 +86,11 @@ export default {
         Register: async function() {
             this.submited = true;
             this.$emit('submit', true);
+
             await setTimeout(() => {
                 this.submited = false;
                 this.$emit('submit', false);
-                this.$router.push('/');
+                this.$emit('success');
             }, 3000);
         }
     },
