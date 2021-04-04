@@ -1,6 +1,6 @@
 <template>
-	<div :class="{ 'darkMode' : isDarkMode }">
-		<div v-if="showMenu" class="bg-theme-light" id="nav-container">
+	<div id="home-grid" :class="{ 'darkMode' : isDarkMode }">
+		<div class="bg-theme-light" id="nav-container">
 			<NavigationMenu/>
 		</div>
 		<div class="bg-theme-dark" id="page-container">
@@ -22,40 +22,30 @@ export default {
 	computed: {
 		isDarkMode: function() { return this.$store.getters.isDarkModeEnabled; },
 		isAuthed: function() { return this.$store.getters.isAuthenticated; },
-		showMenu: function() { return this.$route.meta.navigation === undefined; }
 	},
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	
-	@import '@/assets/styles/variables.scss';
-	@import '@/assets/styles/global.scss';
-	@import '@/assets/styles/main.scss';
-	@import '@/assets/styles/animations.scss';
-	@import '@/assets/styles/darkMode.scss';
-	
+	#home-grid {
+		display: grid;
+		grid-template-columns: 280px auto;
+		height: 100vh;
+	}
+
 	#nav-container {
 		-webkit-app-region: drag;
 		position: relative;
-        height: 100vh;
-		overflow: hidden;
-        float: left;
 		box-shadow: 5px 0px 10px -10px rgba(black, 0.5);
+		z-index: 10;
 	}
 
 	#page-container {
 		position: relative;
 		padding-top: 40px;
-		height: 100vh;
-		width: 100%;
 		overflow-y: auto;
 		overflow-x: hidden;
-	}
-
-	#page-container,
-	#nav-container {
-		transition: all 200ms ease-out !important;
 	}
 
 </style>

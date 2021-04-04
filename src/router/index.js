@@ -52,9 +52,6 @@ const routes = [
 	{
 		path: '/authenticate',
 		component: () => import('../views/Auth.vue'),
-		meta: {
-			navigation: false
-		},
 		children: [
 			{
 				path: '',

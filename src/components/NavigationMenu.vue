@@ -4,25 +4,59 @@
             <div id="menu-toggle-container" @click="toggleMenu()">
                 <span class="material-icons">menu</span>
             </div>
+            <div v-if="!isMenuOpened" id="nav-dark-mode-button">
+                <DarkModeButton/>
+            </div>
         </section>
         <section>
             <div id="main-nav-options">
-                <MenuButton @click="toggleMenu(false)" route="/dashboard" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('dashboard')"/>
-                <MenuButton @click="toggleMenu(false)" route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('rig')"/>
-                <MenuButton @click="toggleMenu(false)" route="/wallet" text="Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('wallet')"/>
-                <MenuButton v-if="isAuthed" @click="toggleMenu(false)" route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('profile')"/>
-                <MenuButton v-else @click="toggleMenu(false)" route="/authenticate" text="Login / Register" icon="login" v-bind:selected="isCurrent('authenticate')"/>
+                <MenuButton 
+                    @click="toggleMenu(false)" 
+                    route="/dashboard" 
+                    text="Dashboard" 
+                    icon="space_dashboard" 
+                    :selected="isCurrent('dashboard')"
+                />
+                <MenuButton 
+                    @click="toggleMenu(false)" 
+                    route="/rig" 
+                    text="Rig Monitoring" 
+                    icon="leaderboard" 
+                    :selected="isCurrent('rig')"
+                />
+                <MenuButton 
+                    @click="toggleMenu(false)" 
+                    route="/wallet" 
+                    text="Wallet" 
+                    icon="account_balance_wallet" 
+                    :selected="isCurrent('wallet')"
+                />
             </div>
         </section>
-        <div class="bottom large">
-            <DarkModeButton/>
+        <div class="bottom">
+            <MenuButton 
+                v-if="isAuthed" 
+                @click="toggleMenu(false)" 
+                route="/profile" 
+                text="My Profile" 
+                icon="account_circle" 
+                :selected="isCurrent('profile')"
+            />
+            <MenuButton 
+                v-else
+                @click="toggleMenu(false)" 
+                route="/authenticate" 
+                text="Login / Register" 
+                icon="login" 
+                :selected="isCurrent('authenticate')"
+            />
         </div>
     </div>
 </template>
 
 <script>
-import MenuButton from '@/components/MenuButton.vue';
-import DarkModeButton from '@/components/DarkModeButton.vue';
+import MenuButton from '@/components/buttons/MenuButton.vue';
+import DarkModeButton from '@/components/buttons/DarkModeButton.vue';
 
 export default {
     components: {
@@ -30,7 +64,8 @@ export default {
         DarkModeButton
     },
     computed: {
-		isAuthed: function() { return this.$store.getters.isAuthenticated; },
+        isAuthed: function() { return this.$store.getters.isAuthenticated; },
+        isMenuOpened: function() { return this.$store.getters.isMenuOpened; },
     },
     mounted() {
         this.toggleMenu(!this.$store.getters.isMenuOpened);
@@ -39,9 +74,10 @@ export default {
         isCurrent: function(path) { return this.$route.path.includes(path); },
         toggleMenu: function(opened = this.$store.getters.isMenuOpened) {
             this.$store.dispatch('TOGGLE_MENU', !opened);
-            document.getElementById('nav-container').style.width = opened ? '280px' : '80px';
-            document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
-            document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
+            document.getElementById('home-grid').style.gridTemplateColumns = opened ? '280px auto' : '80px auto';
+
+            // document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
+            // document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
         },
     }
 }
@@ -52,7 +88,7 @@ export default {
 	@import '@/assets/styles/variables.scss';
 
     #nav-content {
-        position: fixed;
+        position: relative;
         padding-top: 20px;
 		width: 100%;
         height: 100vh;
@@ -63,10 +99,10 @@ export default {
         position: relative;
         height: 40px;
         width: 40px;
-        border-radius: 5px;
-        cursor: pointer;
+        z-index: 10;
         transition: all ease-in 150ms;
         color: $grey;
+        cursor: pointer;
         
         span {
             position: absolute;
@@ -81,14 +117,10 @@ export default {
         opacity: 0.75;
     }
 
-    #main-nav-options {
-        overflow: auto;
-        height: 65vh;
-        width: 100%;
-    }
-
-    .hide-on-collapse {
-        display: none;
+    #nav-dark-mode-button {
+        position: absolute;
+        top: 20px;
+        right: 0;
     }
 
 </style>

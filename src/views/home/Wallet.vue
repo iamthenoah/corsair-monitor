@@ -13,7 +13,7 @@
 
 <script>
 
-import CryptoCard from '@/components/CryptoCard.vue';
+import CryptoCard from '@/components/cards/CryptoCard.vue';
 import NumberFormatter from 'number-formatter';
 
 export default {

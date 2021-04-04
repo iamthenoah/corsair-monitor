@@ -14,7 +14,7 @@
                 <p v-if="error" class="error-msg">{{ error }}</p>
             </div>
             <div class="bottom right">
-                <DarkModeButton backgroundClass="bg-theme-dark-opposite"/>
+                <DarkModeButton/> <!--backgroundClass="bg-theme-dark-opposite"-->
             </div>
             <LoadingBar v-if="submit"/>
         </main>
@@ -23,7 +23,7 @@
 
 <script>
 
-import DarkModeButton from '@/components/DarkModeButton.vue';
+import DarkModeButton from '@/components/buttons/DarkModeButton.vue';
 import LoadingBar from '@/components/LoadingBar.vue';
 
 export default {

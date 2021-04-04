@@ -96,6 +96,11 @@ hr {
     background: rgba($grey, 0.25); 
 }
 
+img {
+    user-select: none;
+    pointer-events: none;
+}
+
 h1 {
     font-weight: 900;
     margin-bottom: 30px;

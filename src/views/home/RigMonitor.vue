@@ -23,7 +23,7 @@
 
 <script>
 
-import RigCard from '@/components/RigCard';
+import RigCard from '@/components/cards/RigCard.vue';
 
 export default {
     components: {

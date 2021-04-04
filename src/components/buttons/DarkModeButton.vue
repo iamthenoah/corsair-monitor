@@ -19,7 +19,7 @@ export default {
             return this.$store.getters.isDarkModeEnabled;
         },
         getBGClass: function() {
-            return this.backgroundClass ? this.backgroundClass : 'bg-theme-light';
+            return this.backgroundClass ? this.backgroundClass : 'bg-theme-dark-oppostie';
         }
     },
     methods: {
