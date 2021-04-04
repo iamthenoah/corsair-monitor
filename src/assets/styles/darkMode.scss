@@ -9,7 +9,7 @@ a, p, h1, h2, h3, h4, h5, h6,
 .selected-indicator-bg,
 .selected-indicator,
 ::placeholder {
-    transition: all ease-in 100ms !important;
+    transition: all ease-in 100ms;
 }
 
 .darkMode {

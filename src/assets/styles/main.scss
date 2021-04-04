@@ -24,6 +24,10 @@
     user-select: none;
 }
 
+.number {
+	font-family: 'Montserrat', sans-serif;
+}
+
 .btn-action,
 .btn {
 	user-select: none;
@@ -37,7 +41,6 @@
 	line-height: 30px;
 	font-size: 13px;
 	font-weight: 500;
-    transition: all ease-in 75ms;
     color: white;
 }
 
@@ -52,11 +55,6 @@
 
 .btn > span {
 	color: $grey !important;
-}
-
-.btn-action:hover,
-.btn:hover {
-    opacity: 0.9;
 }
 
 .btn-action {

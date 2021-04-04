@@ -3,7 +3,6 @@
         <h1>Rig Monitoring</h1>
         <h4>Mining Rigs</h4>
         <div id="rig-container">
-
             <div v-if="Rigs">
                 <div v-for="rig in Object.entries(Rigs)" :key="Object.keys(rig)[0]">
                     <RigCard
@@ -16,8 +15,6 @@
                         :vram="rig[1]['vramsize']" 
                         :uptime="rig[1]['miner_secs']" 
                     />
-                    <!-- <p>{{ rig[0] }}</p>
-                    <p>{{ rig[1] }}</p> -->
                 </div>
             </div>
         </div>
@@ -44,7 +41,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss" scoped>
-    
-</style>

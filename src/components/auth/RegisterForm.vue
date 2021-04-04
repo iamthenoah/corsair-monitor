@@ -7,7 +7,7 @@
         <section>
             <div v-if="!step1">
                 <h4>Step 1 <span style="font-size: 14px">/ 3</span>.</h4>
-                <p>Tell us what your email is and choose a name.</p>
+                <p>Tell us your email and choose a name.</p>
             </div>
             <div v-else-if="!step2">
                 <h4>Step 2 <span style="font-size: 14px">/ 3</span>.</h4>
@@ -100,8 +100,7 @@ export default {
 
     #form-steps {
         display: grid;
-        grid-auto-rows: 150px auto;
-        height: 250px;
+        grid-auto-rows: 180px auto;
         align-items: center;
     }
 

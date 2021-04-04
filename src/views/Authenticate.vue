@@ -98,8 +98,7 @@ export default {
         width: 50%;
         height: 100%;
         overflow: hidden;
-        box-shadow: 5px 0px 15px -10px rgba(black, 0.5);
-
+        box-shadow: 5px 0px 10px -10px rgba(black, 0.5);
     }
 
     #auth-banner {

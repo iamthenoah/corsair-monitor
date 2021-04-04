@@ -2,7 +2,7 @@
     <div class="card-container noselect content">
         <p class="name">{{ name }}</p>
         <p class="address">0x{{ address }}</p>
-        <h3>{{ value }}</h3>
+        <h3 class="number">{{ value }}</h3>
         <div class="bottom right">
             <p id="eth">{{ ETH }} ETH</p>
         </div>
@@ -28,7 +28,7 @@ export default {
 
     .card-container {
         position: relative;
-        padding: 0 20px;
+        padding: 0 25px;
         width: 350px;
         height: 230px;
         border-radius: 15px;
@@ -61,15 +61,11 @@ export default {
         color: white;
     }
 
-    h3 {
-        font-family: 'Montserrat';
-    }
-
     img {
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%) scale(1.1);
         object-fit: cover;
         width: 100%;
         height: 100%;
@@ -78,7 +74,9 @@ export default {
     }
 
     #eth {
-        margin-right: 20px;
+        margin-right: 25px;
+        font-weight: bold;
+        font-size: 16px;
     }
 
 </style>

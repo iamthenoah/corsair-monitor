@@ -1,14 +1,11 @@
 <template>
 	<div :class="{ 'darkMode' : isDarkMode }">
-		<div id="nav-container">
-			<div class="bg-theme-light" id="nav-content">
-				<NavigationMenu/>
-			</div>
+		<span id="drag-handle"></span>
+		<div class="bg-theme-light" id="nav-container">
+			<NavigationMenu/>
 		</div>
-		<div class="bg-theme-dark">
-			<div id="page-container">
-				<router-view/>
-			</div>
+		<div class="bg-theme-dark" id="page-container">
+			<router-view class="fade-in"/>
 		</div>
 	</div>
 </template>
@@ -33,31 +30,28 @@ export default {
 	@import '@/assets/styles/main.scss';
 	@import '@/assets/styles/animations.scss';
 	@import '@/assets/styles/darkMode.scss';
-
+	
 	#nav-container {
 		-webkit-app-region: drag;
 		position: fixed;
         height: 100vh;
-		width: 280px;
 		overflow: hidden;
-		transition: all 200ms ease-out;
-        box-shadow: 5px 0px 15px -10px rgba(black, 0.5);
-	}
-
-	#nav-content {
-        padding-top: 20px;
-		width: 100%;
-		height: 100vh;
+		box-shadow: 5px 0px 10px -10px rgba(black, 0.5);
+		z-index: 100;
 	}
 
 	#page-container {
-		transition: all 200ms ease-out;
-		overflow-y: auto;
-		overflow-x: hidden;
-		width: calc(100% - 280px);
 		padding-top: 40px;
 		height: 100vh;
-		margin-left: 280px;
+		overflow: auto;
+        transition: all 150ms ease-out !important;
+	}
+
+	#drag-handle {
+		-webkit-app-region: drag;
+		position: fixed;
+		width: 100%;
+		height: 40px;
 	}
 
 </style>

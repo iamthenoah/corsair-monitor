@@ -8,6 +8,7 @@
         <p>{{ vram }}</p>
         <p>{{ gpus }}</p>
         <p>{{ uptime }}</p>
+        <div class="side-thumb"></div>
     </div>
 </template>
 
@@ -39,7 +40,7 @@ export default {
         overflow: hidden;
         cursor: pointer;
         transition: all ease-in-out 300ms;
-        box-shadow: 0 0 10px 10px rgba(black, 0.05);
+        box-shadow: 0 0 10px 10px rgba(black, 0.02);
     }
 
     .name {
@@ -70,6 +71,13 @@ export default {
         height: 100%;
         filter: blur(3px);
         z-index: -1;
+    }
+
+    #side-thumb {
+        position: absolute;
+        width: 5px;
+        height: 100%;
+        color: $theme;
     }
 
 </style>

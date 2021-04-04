@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id="nav-content">
         <section class="content">
             <div id="menu-toggle-container" @click="toggleMenu()">
                 <span class="material-icons">menu</span>
@@ -7,15 +7,16 @@
         </section>
         <section>
             <div id="main-nav-options">
-                <MenuButton route="/" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('/')"/>
-                <MenuButton route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('/rig')"/>
-                <MenuButton route="/wallet" text="Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
-                <MenuButton route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('/profile')"/>
+                <MenuButton @click="toggleMenu(false)" route="/" text="Dashboard" icon="space_dashboard" v-bind:selected="isCurrent('/')"/>
+                <MenuButton @click="toggleMenu(false)" route="/rig" text="Rig Monitoring" icon="leaderboard" v-bind:selected="isCurrent('/rig')"/>
+                <MenuButton @click="toggleMenu(false)" route="/wallet" text="Wallet" icon="account_balance_wallet" v-bind:selected="isCurrent('/wallet')"/>
+                <MenuButton @click="toggleMenu(false)" route="/profile" text="My Profile" icon="account_circle" v-bind:selected="isCurrent('/profile')"/>
             </div>
         </section>
         <div class="bottom large">
             <div class="content" :class="{ 'hide-on-collapse' : !openMenu }">
                 <router-link to="/authenticate?form=login"><button class="btn-action large">Login</button></router-link>
+                <router-link to="/authenticate?form=register"><button class="btn large">Register</button></router-link>
             </div>
             <DarkModeButton/>
         </div>
@@ -44,11 +45,11 @@ export default {
             return this.$route.path == path;
         },
         toggleMenu: function(opened = this.$store.getters.isMenuOpened) {
-            this.$store.dispatch('TOGGLE_MENU', !opened);
             this.openMenu = opened;
-            document.getElementById('nav-container').style.width = opened ? '280px' : '80px';
-            document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
+            this.$store.dispatch('TOGGLE_MENU', !opened);
+            document.getElementById('nav-content').style.width = opened ? '280px' : '80px';
             document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
+            document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
         },
     }
 }
@@ -57,6 +58,14 @@ export default {
 <style lang="scss" scoped>
 
 	@import '@/assets/styles/variables.scss';
+
+    #nav-content {
+        padding-top: 20px;
+		width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        transition: all 150ms ease-out !important;
+	}
 
     #menu-toggle-container {
         position: relative;
@@ -81,11 +90,10 @@ export default {
         opacity: 0.75;
     }
 
-
     #main-nav-options {
+        overflow: auto;
         height: 65vh;
         width: 100%;
-        overflow: auto;
     }
 
     .hide-on-collapse {
