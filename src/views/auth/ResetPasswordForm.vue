@@ -13,7 +13,7 @@
             <div v-else >
                 <label>Email</label>
                 <input type="text" placeholder="current email" v-model="email">
-                <button @click="sendResetLink()" class="btn large">Send Reset Email</button>
+                <button :class="{ 'disabled' : email.length === 0 }" @click="sendResetLink()" class="btn large">Send Reset Email</button>
             </div>
             <p class="bottom">Go back to <router-link to="/authenticate/login"><a>login</a></router-link>.</p>
         </div>

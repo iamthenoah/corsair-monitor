@@ -15,36 +15,20 @@ const routes = [
 			{
 				path: '/dashboard',
 				component: () => import('../views/home/Dashboard.vue'),
-				meta: { 
-					// requiresAuth: true 
-				}		
 			},
 			{
 				path: '/rig',
 				component: () => import('../views/home/RigMonitor.vue'),
-				meta: { 
-					// requiresAuth: true 
-				}		
 			},
 			{
 				path: '/wallet',
 				component: () => import('../views/home/Wallet.vue'),
-				meta: { 
-					// requiresAuth: true 
-				}		
 			},
 			{
 				path: '/profile',
 				component: () => import('../views/home/Profile.vue'),
 				meta: { 
-					// requiresAuth: true 
-				}		
-			},
-			{
-				path: '/dashboard',
-				component: () => import('../views/home/Dashboard.vue'),
-				meta: { 
-					// requiresAuth: true 
+					requiresAuth: true 
 				}		
 			},
 		]

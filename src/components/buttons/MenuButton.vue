@@ -31,10 +31,9 @@ export default {
 
     .menu-button {
         position: relative;
-        width: 280px;
+        width: 100%;
         height: 60px;
         color: $grey !important;
-        margin-bottom: 10px;
         -webkit-app-region: no-drag;
     }
 
@@ -53,13 +52,14 @@ export default {
     .selected-indicator-bg {
         position: absolute;
         background: linear-gradient(to right, rgba($theme, 0.1), transparent);
-        width: 50%;
+        width: 100px;
         height: 60px;
         left: 0;
     }
 
     h2 {
         position: absolute;
+        min-width: 100vw;
         top: 50%;
         transform: translateY(-50%);
         font-size: 16px;

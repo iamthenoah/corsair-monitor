@@ -1,46 +1,48 @@
 <template>
-    <div id="nav-content">
+    <nav>
         <section class="content">
             <div id="menu-toggle-container" @click="toggleMenu()">
                 <span class="material-icons">menu</span>
             </div>
-            <div v-if="!isMenuOpened" id="nav-dark-mode-button">
-                <DarkModeButton/>
-            </div>
         </section>
         <section>
-            <div id="main-nav-options">
-                <MenuButton 
-                    @click="toggleMenu(false)" 
-                    route="/dashboard" 
-                    text="Dashboard" 
-                    icon="space_dashboard" 
-                    :selected="isCurrent('dashboard')"
-                />
-                <MenuButton 
-                    @click="toggleMenu(false)" 
-                    route="/rig" 
-                    text="Rig Monitoring" 
-                    icon="leaderboard" 
-                    :selected="isCurrent('rig')"
-                />
-                <MenuButton 
-                    @click="toggleMenu(false)" 
-                    route="/wallet" 
-                    text="Wallet" 
-                    icon="account_balance_wallet" 
-                    :selected="isCurrent('wallet')"
-                />
-            </div>
-        </section>
-        <div class="bottom">
             <MenuButton 
-                v-if="isAuthed" 
+                @click="toggleMenu(false)" 
+                route="/dashboard" 
+                text="Dashboard" 
+                icon="space_dashboard" 
+                :selected="isCurrent('dashboard')"
+            />
+            <MenuButton 
+                @click="toggleMenu(false)" 
+                route="/rig" 
+                text="Rig Monitoring" 
+                icon="leaderboard" 
+                :selected="isCurrent('rig')"
+            />
+            <MenuButton 
+                @click="toggleMenu(false)" 
+                route="/wallet" 
+                text="Wallet" 
+                icon="account_balance_wallet" 
+                :selected="isCurrent('wallet')"
+            />
+            <MenuButton 
                 @click="toggleMenu(false)" 
                 route="/profile" 
                 text="My Profile" 
                 icon="account_circle" 
                 :selected="isCurrent('profile')"
+            />
+        </section>
+        <div class="bottom large">
+            <MenuButton 
+                v-if="isAuthed" 
+                @click="toggleMenu(false)" 
+                route="/logout" 
+                text="My Profile" 
+                icon="logout" 
+                :selected="isCurrent('logout')"
             />
             <MenuButton 
                 v-else
@@ -50,8 +52,9 @@
                 icon="login" 
                 :selected="isCurrent('authenticate')"
             />
+            <DarkModeButton/>
         </div>
-    </div>
+    </nav>
 </template>
 
 <script>
@@ -65,7 +68,6 @@ export default {
     },
     computed: {
         isAuthed: function() { return this.$store.getters.isAuthenticated; },
-        isMenuOpened: function() { return this.$store.getters.isMenuOpened; },
     },
     mounted() {
         this.toggleMenu(!this.$store.getters.isMenuOpened);
@@ -74,10 +76,7 @@ export default {
         isCurrent: function(path) { return this.$route.path.includes(path); },
         toggleMenu: function(opened = this.$store.getters.isMenuOpened) {
             this.$store.dispatch('TOGGLE_MENU', !opened);
-            document.getElementById('home-grid').style.gridTemplateColumns = opened ? '280px auto' : '80px auto';
-
-            // document.getElementById('page-container').style.width = opened ? 'calc(100% - 280px)' : 'calc(100% - 80px)';
-            // document.getElementById('page-container').style.marginLeft = opened ? '280px' : '80px';
+            document.getElementById('nav-container').style.width = opened ? '280px' : '80px';
         },
     }
 }
@@ -85,15 +84,13 @@ export default {
 
 <style lang="scss" scoped>
 
-	@import '@/assets/styles/variables.scss';
+    @import '@/assets/styles/variables.scss';
 
-    #nav-content {
+    nav {
         position: relative;
-        padding-top: 20px;
-		width: 100%;
-        height: 100vh;
-        overflow: hidden;
-	}
+        height: 100%;
+        width: 100%;
+    }
 
     #menu-toggle-container {
         position: relative;
@@ -115,12 +112,6 @@ export default {
 
     #menu-toggle-container:hover {
         opacity: 0.75;
-    }
-
-    #nav-dark-mode-button {
-        position: absolute;
-        top: 20px;
-        right: 0;
     }
 
 </style>

@@ -1,23 +1,35 @@
 <template>
-	<div id="home-grid" :class="{ 'darkMode' : isDarkMode }">
-		<div class="bg-theme-light" id="nav-container">
-			<NavigationMenu/>
+	<div id="home-container" :class="{ 'darkMode' : isDarkMode }">
+		<div class="bg-theme-light">
+			<div id="nav-container">
+				<NavigationMenu />
+			</div>
 		</div>
-		<div class="bg-theme-dark" id="page-container">
+		<div class="bg-theme-dark" id="main-container">
 			<router-view class="fade-in"/>
-			<AuthPrompt v-if="isAuthed" />
 		</div>
 	</div>
+
+
+
+		<!-- <div>
+			<NavigationMenu/>
+		</div>
+		<div class="bg-theme-dark">
+			<div id="home-main-container">
+				<AuthPrompt v-if="isAuthed" />
+			</div>
+		</div> -->
 </template>
 
 <script>
 import NavigationMenu from '@/components/NavigationMenu.vue';
-import AuthPrompt from '@/components/AuthPrompt.vue';
+// import AuthPrompt from '@/components/AuthPrompt.vue';
 
 export default {
     components: {
 		NavigationMenu,
-        AuthPrompt,
+        // AuthPrompt,
 	},
 	computed: {
 		isDarkMode: function() { return this.$store.getters.isDarkModeEnabled; },
@@ -27,25 +39,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	
-	#home-grid {
-		display: grid;
-		grid-template-columns: 280px auto;
+
+	#home-container {
+		width: 100vw;
 		height: 100vh;
+		display: flex;
+		position: fixed;
 	}
 
 	#nav-container {
 		-webkit-app-region: drag;
-		position: relative;
+		height: 100vh;
+		padding-top: 20px;
+		transition: all 200ms ease-out;
+		display: inline-flex;
+		overflow: hidden;
 		box-shadow: 5px 0px 10px -10px rgba(black, 0.5);
-		z-index: 10;
 	}
 
-	#page-container {
-		position: relative;
+	#main-container {
 		padding-top: 40px;
-		overflow-y: auto;
-		overflow-x: hidden;
+		width: 100%;
+		display: inline-flex;
+		z-index: -10;
+		overflow: auto;
 	}
 
 </style>

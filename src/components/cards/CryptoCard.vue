@@ -39,7 +39,7 @@ export default {
     }
 
     .card-container:hover {
-        box-shadow: 0 15px 20px -10px rgba(black, 0.5);
+        box-shadow: 0 20px 20px -10px rgba(black, 0.5);
         transform: scale(1.02);
     }
 
