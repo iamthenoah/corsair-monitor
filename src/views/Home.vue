@@ -13,17 +13,14 @@
 
 <script>
 import NavigationMenu from '@/components/NavigationMenu.vue';
-// import AuthPrompt from '@/components/AuthPrompt.vue';
 
 export default {
     components: {
 		NavigationMenu,
-        // AuthPrompt,
 	},
 	computed: {
 		isDarkMode: function() { return this.$store.getters.isDarkModeEnabled; },
-		isAuthed: function() { return this.$store.getters.isAuthenticated; },
-	},
+	}
 }
 </script>
 

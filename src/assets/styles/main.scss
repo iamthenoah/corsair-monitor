@@ -44,13 +44,25 @@
     color: white;
 }
 
-.btn-action,
-.btn {
+.btn-icon,
+.btn-icon-left,
+.btn-icon-right {
 	span {		
 		font-size: 10px;
-		margin-left: 10px;
 		transform: scale(1.75);
 	}
+}
+
+.btn-icon {
+	padding: 5px;
+}
+
+.btn-icon-left > span {
+	margin-right: 10px;
+}
+
+.btn-icon-right > span {
+	margin-left: 10px;
 }
 
 .btn > span {
@@ -100,9 +112,16 @@
 	user-select: none !important;
 }
 
-.loading-bar-bottom {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+.horizontal-carousel {
 	width: 100%;
+	
+	ul {
+		white-space: nowrap;
+		overflow-x: auto;
+		overflow-y: hidden;
+	}
+
+	li {
+		display: inline-block;
+	}
 }

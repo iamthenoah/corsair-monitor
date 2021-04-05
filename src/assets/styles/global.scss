@@ -5,6 +5,32 @@
     box-sizing: border-box;
 }
 
+::selection {
+    background: $theme;
+}
+
+// ::-webkit-scrollbar {
+//     height: 7.5px;
+//     width: 7.5px;
+//     border-radius: 100%;
+//     padding: 0 5px;
+// }
+
+// ::-webkit-scrollbar-track {
+//     background: transparent; 
+// }
+
+// // Handle
+// ::-webkit-scrollbar-thumb {
+//     border-radius: 5px;
+//     background: $grey; 
+// }
+
+// // Handle on hover
+// ::-webkit-scrollbar-thumb:hover {
+//     background: $grey; 
+// }
+
 main {
     height: 5000px;
 }
@@ -71,11 +97,14 @@ label {
     font-weight: 500;
 }
 
-ul {
-    color: $grey;
-    padding-left: 30px;
+ul, li {
+    text-decoration: none;
+    list-style-type: none;
 }
 
+li {
+    display: inline;
+}
 
 p {
     -webkit-app-region: no-drag;

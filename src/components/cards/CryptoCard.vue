@@ -36,6 +36,8 @@ export default {
         cursor: pointer;
         transition: all ease-in-out 300ms;
         transform: scale(1);
+        margin: 5px 10px 30px;
+        box-shadow: 0 15px 10px -10px rgba(black, 0.5);
     }
 
     .card-container:hover {

@@ -5,20 +5,15 @@ const routes = [
 	{
 		path: '/',
 		component: () => import('../views/Home.vue'),
-		meta: {
-			redirect: {
-				from: '/',
-				to: '/dashboard'
-			}
-		},
+		redirect: '/dashboard',
 		children: [
 			{
 				path: '/dashboard',
 				component: () => import('../views/home/Dashboard.vue'),
 			},
 			{
-				path: '/rig',
-				component: () => import('../views/home/RigMonitor.vue'),
+				path: '/rigs',
+				component: () => import('../views/home/Rigs.vue'),
 			},
 			{
 				path: '/wallet',
@@ -54,7 +49,7 @@ const routes = [
 				component: () => import('../views/auth/ResetPasswordForm.vue')
 			}
 		]
-	},
+	}
 ];
 
 const router = createRouter({
@@ -65,9 +60,6 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     if (to.matched.some(r => r.meta.requiresAuth))
 		if (!store.getters.isAuthenticated) return next('/authenticate');
-	if (to.matched.some(r => r.meta.redirect))
-		if (to.path === to.meta.redirect.from)
-			return next(to.meta.redirect.to);
     return next();
 });
 

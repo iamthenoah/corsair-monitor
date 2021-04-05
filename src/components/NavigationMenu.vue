@@ -15,7 +15,7 @@
             />
             <MenuButton 
                 @click="toggleMenu(false)" 
-                route="/rig" 
+                route="/rigs" 
                 text="Rig Monitoring" 
                 icon="leaderboard" 
                 :selected="isCurrent('rig')"
@@ -28,6 +28,7 @@
                 :selected="isCurrent('wallet')"
             />
             <MenuButton 
+                v-if="isAuthed" 
                 @click="toggleMenu(false)" 
                 route="/profile" 
                 text="My Profile" 
@@ -36,22 +37,12 @@
             />
         </section>
         <div class="bottom large">
-            <MenuButton 
-                v-if="isAuthed" 
-                @click="toggleMenu(false)" 
-                route="/logout" 
-                text="My Profile" 
-                icon="logout" 
-                :selected="isCurrent('logout')"
-            />
-            <MenuButton 
-                v-else
-                @click="toggleMenu(false)" 
-                route="/authenticate" 
-                text="Login / Register" 
-                icon="login" 
-                :selected="isCurrent('authenticate')"
-            />
+            <div class="content">
+                <router-link to="/authenticate">
+                    <button v-if="isMenuOpened" class="btn btn-icon large"><span class="material-icons">login</span></button>
+                    <button v-else class="btn btn-icon-left large"><span class="material-icons">login</span>Login</button>
+                </router-link>
+            </div>
             <DarkModeButton/>
         </div>
     </nav>
@@ -68,6 +59,7 @@ export default {
     },
     computed: {
         isAuthed: function() { return this.$store.getters.isAuthenticated; },
+        isMenuOpened: function() { return this.$store.getters.isMenuOpened; },
     },
     mounted() {
         this.toggleMenu(!this.$store.getters.isMenuOpened);

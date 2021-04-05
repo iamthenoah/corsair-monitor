@@ -1,11 +1,38 @@
 <template>
     <main class="content bezels">
         <h1>Crypto Wallet</h1>
-        <CryptoCard 
-            address="3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf" 
-            name="Main Account" :ETH="3.55" :value="formatNumber(23434.5)"
-            theme="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjnUSnSpwEO49RoQS_hf4Vhou9WLCQsJjAteZd8HOziwF5Y-XnMbrGhg4Q9ZvBj1Jjfkk&usqp=CAU"
-        />
+        <div class="horizontal-carousel">
+            <ul>
+                <li>
+                    <CryptoCard 
+                        address="3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf" 
+                        name="Main Account" :ETH="3.55" :value="formatNumber(23434.5)"
+                        theme="https://i.pinimg.com/736x/ee/05/1b/ee051bb136477c3fbc9522fe622bf4d7.jpg"
+                    />
+                </li>
+                <li>
+                    <CryptoCard 
+                        address="3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf" 
+                        name="Main Account" :ETH="3.55" :value="formatNumber(23434.5)"
+                        theme="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjnUSnSpwEO49RoQS_hf4Vhou9WLCQsJjAteZd8HOziwF5Y-XnMbrGhg4Q9ZvBj1Jjfkk&usqp=CAU"
+                    />
+                </li>
+                <li>
+                    <CryptoCard 
+                        address="3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf" 
+                        name="Main Account" :ETH="3.55" :value="formatNumber(23434.5)"
+                        theme="http://unblast.com/wp-content/uploads/2019/03/Acrylic-Liquid-Paint-Textures-8.jpg"
+                    />
+                </li>
+                <li>
+                    <CryptoCard 
+                        address="3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf" 
+                        name="Main Account" :ETH="3.55" :value="formatNumber(23434.5)"
+                        theme="https://wallpaperaccess.com/full/1221877.jpg"
+                    />
+                </li>
+            </ul>
+        </div>
     </main>
 </template>
 

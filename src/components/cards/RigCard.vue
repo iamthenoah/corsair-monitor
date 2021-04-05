@@ -40,7 +40,7 @@ export default {
         overflow: hidden;
         cursor: pointer;
         transition: all ease-in-out 300ms;
-        box-shadow: 0 0 10px 10px rgba(black, 0.02);
+        margin: 0 20px 20px 0;
     }
 
     .name {
