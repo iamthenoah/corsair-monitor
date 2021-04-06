@@ -4,7 +4,7 @@
             <div class="selected-indicator"></div>
         </div>
         <div v-if="placeholder" class="rig-card-content">
-            <PlaceHolderText/>
+            <PlaceholderText/>
         </div>
         <div v-else>
             <h3>{{ name }}</h3>
@@ -20,11 +20,11 @@
 </template>
 
 <script>
-import PlaceHolderText from '@/components/PlaceholderText.vue';
+import PlaceholderText from '@/components/PlaceholderText.vue';
 
 export default {
     components: {
-        PlaceHolderText
+        PlaceholderText
     },
     props: {
         name: String,

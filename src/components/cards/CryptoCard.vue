@@ -1,10 +1,10 @@
 <template>
-    <div class="card-container noselect content">
-        <p class="name">{{ name }}</p>
-        <p class="address">0x{{ address }}</p>
-        <h3 class="number">{{ value }}</h3>
+    <div class="card-container noselect content bg-theme-light fade-in">
+        <p :class="{ 'placeholder' : placeholder }" class="name">{{ name }}</p>
+        <p :class="{ 'placeholder' : placeholder }" class="address">0x{{ address }}</p>
+        <h3 :class="{ 'placeholder' : placeholder }" class="number">{{ value }}</h3>
         <div class="bottom right">
-            <p id="eth">{{ ETH }} ETH</p>
+            <p :class="{ 'placeholder' : placeholder }" class="eth">{{ ETH }} ETH</p>
         </div>
         <img :src="theme">
     </div>
@@ -17,7 +17,8 @@ export default {
         address: String,
         theme: String,
         value: String,
-        ETH: Number
+        ETH: Number,
+        placeholder: Boolean
     }
 }
 </script>
@@ -28,7 +29,7 @@ export default {
 
     .card-container {
         position: relative;
-        padding: 0 25px;
+        padding: 20px;
         width: 350px;
         height: 230px;
         border-radius: 15px;
@@ -50,16 +51,17 @@ export default {
     }
 
     .address {
-        margin-top: 0px;
+        margin-top: 5px;
         margin-bottom: 20px;
         font-weight: 300;
-        text-overflow: ellipsis;
-        width: 100px;
+        width: 200px;
         overflow: hidden;
+        text-overflow: ellipsis;
         white-space: nowrap;
     }
 
     p, h3 {
+        margin-top: 0;
         color: white;
     }
 
@@ -75,8 +77,8 @@ export default {
         z-index: -1;
     }
 
-    #eth {
-        margin-right: 25px;
+    .eth {
+        margin-right: 20px;
         font-weight: bold;
         font-size: 16px;
     }

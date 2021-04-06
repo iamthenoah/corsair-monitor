@@ -3,7 +3,7 @@
         <h1>Rig Monitoring</h1>
         <section>
             <h4>Mining Rigs</h4>
-            <div id="rigcard-container" class="horizontal-carousel">
+            <div class="horizontal-carousel">
                 <div v-if="Rigs">
                     <ul v-for="rig in Object.entries(Rigs)" :key="Object.keys(rig)[0]">
                         <li>
@@ -36,7 +36,7 @@
                         </li>
                     </ul>
                 </div>
-                <div v-else>
+                <div v-else class="noscroll">
                     <ul>
                         <li><RigCard placeholder/></li>
                         <li><RigCard placeholder/></li>
@@ -70,8 +70,8 @@ export default {
     computed: {
         Rigs: function() {
             const r = this.$store.getters.Rigs;
-            // return r ? r.rigs : null;
-            return null;
+            return r ? r.rigs : null;
+            // return null;
         },
         selectedRig: function() {
             const r = this.$store.getters.Rigs;
@@ -107,11 +107,3 @@ export default {
     }
 }
 </script>
-
-<style lang="scss">
-    
-    #rigcard-container {
-        width: 100%;
-    }
-
-</style>

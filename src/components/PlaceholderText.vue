@@ -1,5 +1,5 @@
 <template>
-    <div :class="backgroundClass" class="placeholder" :style="style">
+    <div :class="backgroundClass" class="placeholder_" :style="style">
         <span :class="isDarkMode ? 'shine-dark' : 'shine-light'"></span>
     </div>
 </template>
@@ -23,13 +23,18 @@ export default {
             type: String,
             default: '25px'
         },
+        margin: {
+            type: String,
+            default: '0' // t r b l
+        }
     },
     data() {
         return {
             style: {
                 width: this.width,
                 height: this.height,
-                borderRadius: this.radius
+                borderRadius: this.radius,
+                margin: this.margin
             }
         }
     },
@@ -43,7 +48,7 @@ export default {
 
 	@import '@/assets/styles/variables.scss';
 
-    .placeholder {
+    .placeholder_ {
         height: 220px;
         width: 100%;
         z-index: 0;
@@ -72,8 +77,8 @@ export default {
     }
 
     @keyframes slide {
-        0% { transform:translateX(-100%); }
-        100% { transform:translateX(100%); }
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
     }
 
 </style>
