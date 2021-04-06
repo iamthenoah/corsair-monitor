@@ -1,14 +1,18 @@
 <template>
-    <div class="rig-card-container bg-theme-light noselect">
-        <p>{{ name }}</p>
-        <p>{{ algo }}</p>
-        <p>{{ state }}</p>
-        <p>{{ temp }}</p>
-        <p>{{ hash }}</p>
-        <p>{{ vram }}</p>
-        <p>{{ gpus }}</p>
-        <p>{{ uptime }}</p>
-        <div class="side-thumb"></div>
+    <div @click="redirect()" class="rig-card-container bg-theme-light noselect" :class="{ 'selected-shadow': selected }">
+        <div v-if="selected">
+            <div class="selected-indicator"></div>
+        </div>
+        <div class="rig-card-content">
+            <p>{{ name }}</p>
+            <p>{{ algo }}</p>
+            <p>{{ state }}</p>
+            <p>{{ temp }}</p>
+            <p>{{ hash }}</p>
+            <p>{{ vram }}</p>
+            <p>{{ gpus }}</p>
+            <p>{{ uptime }}</p>
+        </div>
     </div>
 </template>
 
@@ -22,7 +26,13 @@ export default {
         hash: String,
         vram: String,
         gpus: String,
-        uptime: Number
+        uptime: Number,
+        selected: Boolean,
+    },
+    methods: {
+        redirect: function() {
+            this.$router.push(`${this.$route.path}?selected=${this.name}`);
+        }
     }
 }
 </script>
@@ -33,7 +43,6 @@ export default {
 
     .rig-card-container {
         position: relative;
-        padding: 0 20px;
         width: 380px;
         height: 250px;
         border-radius: 15px;
@@ -41,6 +50,15 @@ export default {
         cursor: pointer;
         transition: all ease-in-out 300ms;
         margin: 0 20px 20px 0;
+
+        // margin: 5px 15px 30px;
+        // &:hover {
+        //     box-shadow: 0 20px 20px -10px rgba(black, 0.5);
+        // }
+    }
+
+    .rig-card-content {
+        padding: 0 20px;
     }
 
     .name {
@@ -57,6 +75,10 @@ export default {
         white-space: nowrap;
     }
 
+    // .selected-shadow {
+    //     box-shadow: 0 15px 10px -10px rgba(black, 0.5);
+    // }
+
     h3 {
         font-family: 'Montserrat';
     }
@@ -69,15 +91,8 @@ export default {
         object-fit: cover;
         width: 100%;
         height: 100%;
-        filter: blur(3px);
         z-index: -1;
-    }
-
-    #side-thumb {
-        position: absolute;
-        width: 5px;
-        height: 100%;
-        color: $theme;
+        filter: blur(3px);
     }
 
 </style>

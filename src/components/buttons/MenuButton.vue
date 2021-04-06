@@ -1,5 +1,5 @@
 <template>
-    <div @click="onClick" class="menu-button noselect" :class="{ 'selected' : selected }">
+    <div @click="redirect()" class="menu-button noselect" :class="{ 'selected' : selected }">
         <div v-if="selected">
             <div class="selected-indicator-bg"></div>
             <div class="selected-indicator"></div>
@@ -18,7 +18,7 @@ export default {
         selected: Boolean
     },
     methods: {
-        onClick: function() {
+        redirect: function() {
             this.$router.push(this.route);
         }
     },
@@ -40,21 +40,6 @@ export default {
     .menu-button:hover {
         cursor: pointer;
         background: rgba($grey, 0.1);
-    }
-
-    .selected-indicator {
-        position: absolute;
-        height: 100%;
-        width: 5px;
-        background: $theme;
-    }
-
-    .selected-indicator-bg {
-        position: absolute;
-        background: linear-gradient(to right, rgba($theme, 0.1), transparent);
-        width: 100px;
-        height: 60px;
-        left: 0;
     }
 
     h2 {

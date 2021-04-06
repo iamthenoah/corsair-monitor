@@ -1,9 +1,5 @@
 import axios from 'axios';
 
-
-const ethosEndpoint = 'ethosdistro.com';
-
-
 const state = {
     rigs: null,
 };
@@ -14,10 +10,12 @@ const getters = {
 
 const actions = {
     async GET_RIGS({ commit }, rigId) {
-        setTimeout(async() => {            
-            const res = await axios.get(`http://${rigId}.${ethosEndpoint}/?json=yes`);
-            commit('SET', res.data);
-        }, 10);
+        await new Promise((resolve, reject) => {
+            setTimeout(async() => {
+                const res = await axios.get(`http://${rigId}.ethosdistro.com/?json=yes`);
+                resolve(commit('SET', res.data));
+            }, 3000);
+        })
     },
 
     RESET({ commit }) {

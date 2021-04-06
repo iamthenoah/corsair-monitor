@@ -68,6 +68,7 @@ export default {
         isCurrent: function(path) { return this.$route.path.includes(path); },
         toggleMenu: function(opened = this.$store.getters.isMenuOpened) {
             this.$store.dispatch('TOGGLE_MENU', !opened);
+            document.getElementById('main-container').scrollTo(0, 0);
             document.getElementById('nav-container').style.width = opened ? '280px' : '80px';
         },
     }

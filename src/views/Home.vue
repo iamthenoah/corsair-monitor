@@ -6,7 +6,7 @@
 			</div>
 		</div>
 		<div class="bg-theme-dark" id="main-container">
-			<router-view class="fade-in"/>
+			<router-view class="fade-left"/>
 		</div>
 	</div>
 </template>
