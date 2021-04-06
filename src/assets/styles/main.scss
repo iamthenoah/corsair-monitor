@@ -24,6 +24,11 @@
     user-select: none;
 }
 
+.noscroll {
+	overflow: hidden;
+	pointer-events: none;
+}
+
 .number {
 	font-family: 'Montserrat', sans-serif;
 }
@@ -122,6 +127,7 @@
 	}
 
 	li {
+		position: relative;
 		display: inline-block;
 	}
 }
@@ -139,4 +145,8 @@
 	width: 100px;
 	height: 100%;
 	left: 0;
+}
+
+.cursor {
+	cursor: pointer;
 }

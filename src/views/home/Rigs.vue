@@ -3,37 +3,46 @@
         <h1>Rig Monitoring</h1>
         <section>
             <h4>Mining Rigs</h4>
-            <div v-if="Rigs" id="rigcard-container" class="horizontal-carousel">
-                <ul v-for="rig in Object.entries(Rigs)" :key="Object.keys(rig)[0]">
-                    <li>
-                        <RigCard
-                            @click="changeSelectedRig(rig[0])"
-                            :selected="isSelectedRig(rig[0])"
-                            :name="rig[0]" 
-                            :algo="rig[1]['miner']" 
-                            :state="rig[1]['condition']" 
-                            :temp="rig[1]['temp']"
-                            :gpus="rig[1]['gpus']" 
-                            :hash="rig[1]['miner_hashes']" 
-                            :vram="rig[1]['vramsize']" 
-                            :uptime="rig[1]['miner_secs']" 
-                        />
-                    </li>
-                    <li>
-                        <RigCard
-                            @click="changeSelectedRig('rig[0]')"
-                            :selected="isSelectedRig('rig[0]')"
-                            name="rig[0]" 
-                            algo="rig[1]['miner']" 
-                            state="rig[1]['condition']" 
-                            temp="rig[1]['temp']"
-                            gpus="rig[1]['gpus']" 
-                            hash="rig[1]['miner_hashes']" 
-                            vram="rig[1]['vramsize']" 
-                            :uptime="123455" 
-                        />
-                    </li>
-                </ul>
+            <div id="rigcard-container" class="horizontal-carousel">
+                <div v-if="Rigs">
+                    <ul v-for="rig in Object.entries(Rigs)" :key="Object.keys(rig)[0]">
+                        <li>
+                            <RigCard
+                                @click="changeSelectedRig(rig[0])"
+                                :selected="isSelectedRig(rig[0])"
+                                :name="rig[0]" 
+                                :algo="rig[1]['miner']" 
+                                :state="rig[1]['condition']" 
+                                :temp="rig[1]['temp']"
+                                :gpus="rig[1]['gpus']" 
+                                :hash="rig[1]['miner_hashes']" 
+                                :vram="rig[1]['vramsize']" 
+                                :uptime="rig[1]['miner_secs']" 
+                            />
+                        </li>
+                        <li>
+                            <RigCard
+                                @click="changeSelectedRig('rig[0]')"
+                                :selected="isSelectedRig('rig[0]')"
+                                name="rig[0]" 
+                                algo="rig[1]['miner']" 
+                                state="rig[1]['condition']" 
+                                temp="rig[1]['temp']"
+                                gpus="rig[1]['gpus']" 
+                                hash="rig[1]['miner_hashes']" 
+                                vram="rig[1]['vramsize']" 
+                                :uptime="123455" 
+                            />
+                        </li>
+                    </ul>
+                </div>
+                <div v-else>
+                    <ul>
+                        <li><RigCard placeholder/></li>
+                        <li><RigCard placeholder/></li>
+                        <li><RigCard placeholder/></li>
+                    </ul>
+                </div>
             </div>
         </section>
         <hr>
@@ -61,7 +70,8 @@ export default {
     computed: {
         Rigs: function() {
             const r = this.$store.getters.Rigs;
-            return r ? r.rigs : null;
+            // return r ? r.rigs : null;
+            return null;
         },
         selectedRig: function() {
             const r = this.$store.getters.Rigs;

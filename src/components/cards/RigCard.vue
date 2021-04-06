@@ -1,10 +1,13 @@
 <template>
-    <div @click="redirect()" class="rig-card-container bg-theme-light noselect" :class="{ 'selected-shadow': selected }">
+    <div @click="redirect()" class="rig-card-container bg-theme-light noselect" :class="{ 'cursor' : !placeholder }">
         <div v-if="selected">
             <div class="selected-indicator"></div>
         </div>
-        <div class="rig-card-content">
-            <p>{{ name }}</p>
+        <div v-if="placeholder" class="rig-card-content">
+            <PlaceHolderText/>
+        </div>
+        <div v-else>
+            <h3>{{ name }}</h3>
             <p>{{ algo }}</p>
             <p>{{ state }}</p>
             <p>{{ temp }}</p>
@@ -17,7 +20,12 @@
 </template>
 
 <script>
+import PlaceHolderText from '@/components/PlaceholderText.vue';
+
 export default {
+    components: {
+        PlaceHolderText
+    },
     props: {
         name: String,
         algo: String,
@@ -28,6 +36,7 @@ export default {
         gpus: String,
         uptime: Number,
         selected: Boolean,
+        placeholder: Boolean,
     },
     methods: {
         redirect: function() {
@@ -47,7 +56,6 @@ export default {
         height: 250px;
         border-radius: 15px;
         overflow: hidden;
-        cursor: pointer;
         transition: all ease-in-out 300ms;
         margin: 0 20px 20px 0;
 
@@ -58,41 +66,7 @@ export default {
     }
 
     .rig-card-content {
-        padding: 0 20px;
-    }
-
-    .name {
-        margin-bottom: 0;
-    }
-
-    .address {
-        margin-top: 0px;
-        margin-bottom: 20px;
-        font-weight: 300;
-        text-overflow: ellipsis;
-        width: 100px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-
-    // .selected-shadow {
-    //     box-shadow: 0 15px 10px -10px rgba(black, 0.5);
-    // }
-
-    h3 {
-        font-family: 'Montserrat';
-    }
-
-    img {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        filter: blur(3px);
+        padding: 20px;
     }
 
 </style>

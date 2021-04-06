@@ -38,38 +38,3 @@
         opacity: 1;
     }
 }
-
-.placeholder {
-    height: 220px;
-    width: 100%;
-    background: transparent;
-    z-index: 0;
-    position: relative;
-}
-
-.placeholder:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    transform: translateX(100%);
-    width: 100%;
-    height: 220px;
-    z-index: 1;
-    animation: slide 1s infinite;
-    background: -webkit-gradient(linear, left top, right top, color-stop(0%, transparent), color-stop(50%, whitesmoke), color-stop(99%, transparent), color-stop(100%, transparent)) skew(-15deg);
-    
-    // background: -webkit-linear-gradient(left, black 0%, whitesmoke 50%,transparent 99% ,transparent 100%); /* Chrome10+,Safari5.1+ */
-    // background: -moz-linear-gradient(left, black 0%, whitesmoke 50%, transparent 99%, transparent 100%) skew(-15deg); /* FF3.6+ */
-    // background: -ms-linear-gradient(left, black 0%, whitesmoke 50%, transparent 99%, transparent 100%); /* IE10+ */
-    // background: linear-gradient(to right, black 0%, whitesmoke 50%, transparent 99%, transparent 100%); /* W3C */
-    // background: -o-linear-gradient(left, black 0%, whitesmoke 50%, transparent 99%, transparent 100%); /* Opera 11.10+ */
-}
-
-@keyframes slide {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
-}

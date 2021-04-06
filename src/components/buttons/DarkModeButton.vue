@@ -1,5 +1,5 @@
 <template>
-    <div class="mode-icon-container" :class="getBGClass" @click="toggleDarkMode()">
+    <div class="mode-icon-container" :class="backgroundClass" @click="toggleDarkMode()">
         <div v-if="isDarkMode">
             <span class="material-icons">light_mode</span>
         </div>
@@ -12,20 +12,16 @@
 <script>
 export default {
     props: {
-        backgroundClass: String,
+        backgroundClass: {
+            type: String,
+            default: ''
+        },
     },
     computed: {
-        isDarkMode: function() {
-            return this.$store.getters.isDarkModeEnabled;
-        },
-        getBGClass: function() {
-            return this.backgroundClass ? this.backgroundClass : 'bg-theme-dark-oppostie';
-        }
+        isDarkMode: function() { return this.$store.getters.isDarkModeEnabled; },
     },
     methods: {
-        toggleDarkMode: function() {
-            this.$store.dispatch('TOGGLE_DARK_MODE');
-        }
+        toggleDarkMode: function() { this.$store.dispatch('TOGGLE_DARK_MODE'); }
     },
 }
 </script>
