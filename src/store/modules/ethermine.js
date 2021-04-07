@@ -6,18 +6,14 @@ const ethermine = 'https://api.ethermine.org/';
 
 
 const actions = {
-    async GET_INFO({ commit }, info) {
+    async GET_INFO({ commit }, uris) {
         return await new Promise((resolve, reject) => {
             setTimeout(async () => {
-                const suffix = info.suffix || '/dashboard';
-                const prefix = info.prefix || '/miner';
-                const address = info.address;
-
-                if (!address) throw new Error('Invalid mining address provided.');
-                const res = await axios.get(cors + ethermine + `${prefix}/${address}${suffix}`)
+                if (!uris) throw new Error('Invalid mining address provided.');
+                const res = await axios.get(cors + ethermine + uris.join('/'))
                     .catch(err => reject(err));
-
                 resolve(res.data.data);
+                resolve(null);
             }, 1000);
         });
     }

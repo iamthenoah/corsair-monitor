@@ -16,6 +16,10 @@ const routes = [
 				component: () => import('../views/home/Workers.vue'),
 			},
 			{
+				path: '/workers/:id',
+				component: () => import('../views/home/Workers.vue'),
+			},
+			{
 				path: '/wallet',
 				component: () => import('../views/home/Wallet.vue'),
 			},

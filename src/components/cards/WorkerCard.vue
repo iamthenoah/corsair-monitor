@@ -4,7 +4,7 @@
         <div class="rig-card-content">
             <a @click="redirect()" :class="{ 'placeholder' : placeholder }" class="right">view details</a>
             <h3 :class="{ 'placeholder' : placeholder }" class="name">{{ worker.worker }}</h3>
-            <p :class="{ 'placeholder' : placeholder }" class="condition">{{ worker.validShares ? 'Mining' : 'Idle' }}</p>
+            <p :class="{ 'placeholder' : placeholder }" class="condition">{{ worker.currentHashrate != 0 ? 'Mining' : 'Idle' }}</p>
             <p :class="{ 'placeholder' : placeholder }" class="number hash-number">{{ formatNumber(worker.currentHashrate / 1000000) }} MH•s<sup>-1</sup><span class="material-icons">north_east</span></p>
         </div>
     </div>
@@ -38,7 +38,7 @@ export default {
         formatNumber: function(value) { return NumberFormatter('#,##0.####', value); },
         redirect: function() { 
             document.getElementById('scroll-to-worker-info').scrollIntoView({ behavior: 'smooth' });
-            this.$router.push(`${this.$route.path}?selected=${this.worker.worker}`); 
+            this.$router.push(`${this.$route.path}/${this.worker.worker}`); 
         },
         getHashStateIcon: function() {
             

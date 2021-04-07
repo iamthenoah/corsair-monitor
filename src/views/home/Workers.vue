@@ -5,7 +5,7 @@
             <h4>Mining Rigs</h4>
             <div class="horizontal-carousel">
                 <div v-if="workers">
-                    <ul v-for="worker in workers" :key="worker.worker">
+                    <ul v-for="worker in workers.workers" :key="worker.worker">
                         <li><WorkerCard :worker="worker" :selected="isSelectedRig(worker.worker)"/></li>
                     </ul>
                 </div>
@@ -39,10 +39,11 @@ export default {
         }
     },
     async mounted() { 
-        this.workers = await this.$store.dispatch('GET_INFO', {
-            address: '3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf',
-            suffix: '/workers'
-        });
+        this.workers = await this.$store.dispatch('GET_INFO', [
+            'miner',
+            '3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf',
+            'dashboard'
+        ]);
     },
 
     // this.$store.dispatch('RESET_BASIC_INFO');
@@ -60,7 +61,7 @@ export default {
     // },
     methods: {
         isSelectedRig: function(name) { return this.$route.query.selected == name; },
-        changeSelectedRig: function(name) { this.$router.push(`/rigs?selected=${name}`) },
+        // changeSelectedRig: function(name) { this.$router.push(`/rigs?selected=${name}`) },
     }
 }
 </script>
