@@ -31,6 +31,9 @@
 
 .number {
 	font-family: 'Montserrat', sans-serif;
+	margin-top: 20px;
+	font-size: 30px;
+	font-weight: 700;
 }
 
 .btn-action,
@@ -89,8 +92,7 @@
 }
 
 .right {
-	position: absolute;
-	right: 0;
+	float: right;
 }
 
 .large {
@@ -99,7 +101,9 @@
 
 .error-msg {
 	color: $red !important;
-	font-weight: 500;
+	padding: 7.5px 30px;
+	border-radius: 5px;
+	background: rgba(red, 0.1);
 }
 
 .invalid-input {
@@ -171,7 +175,7 @@
 	height: 100%;
 	transform: translateX(100%);
 	background: linear-gradient(0.25turn, transparent, white, transparent);
-	animation: slide_bar 1500ms infinite;
+	animation: slide_bar 1000ms infinite;
 }
 
 @keyframes slide_bar {

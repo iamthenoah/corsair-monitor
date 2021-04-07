@@ -31,10 +31,6 @@
 //     background: $grey; 
 // }
 
-main {
-    height: 5000px;
-}
-
 section {
     margin: 20px 0;
     width: 100%;
@@ -85,7 +81,7 @@ button {
     margin: 5px 0;
 }
 
-a, button {
+button, a {
     cursor: pointer;
 }
 
@@ -132,8 +128,10 @@ img {
 
 h1 {
     font-weight: 900;
-    margin-bottom: 30px;
-    font-size: 36px;
+    margin-bottom: 15px;
+    font-size: 32px;
+    text-transform: uppercase;
+    color: $grey;
 }
 
 h2 {

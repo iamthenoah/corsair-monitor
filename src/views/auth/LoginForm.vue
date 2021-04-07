@@ -32,9 +32,9 @@ export default {
     },
     methods: {
         Login: async function() {
+            // throw new Error('Invalid email or password.');
             this.submited = true;
             this.$emit('submit', true);
-
             await setTimeout(() => {
                 this.submited = false;
                 this.$emit('submit', false);

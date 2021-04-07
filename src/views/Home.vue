@@ -48,7 +48,7 @@ export default {
 		width: 100%;
 		display: inline-flex;
 		z-index: -10;
-		overflow: auto;
+		overflow: hidden;
 	}
 
 </style>

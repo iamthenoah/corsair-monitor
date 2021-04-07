@@ -1,6 +1,7 @@
 // include all element that require transition when toggling dark theme
 
-input, button, span, label,
+input, button,
+span, label, body,
 a, p, h1, h2, h3, h4, h5, h6,
 .bg-theme-dark,
 .bg-theme-light,
@@ -9,6 +10,7 @@ a, p, h1, h2, h3, h4, h5, h6,
 .mode-icon-container,
 .selected-indicator-bg,
 .selected-indicator,
+.placeholder:after,
 .placeholder,
 ::placeholder {
     transition: all ease-in 100ms !important;
@@ -61,6 +63,6 @@ a, p, h1, h2, h3, h4, h5, h6,
     }
 
     .placeholder:after {
-        background: linear-gradient(0.25turn, transparent, $dark, transparent) !important;
+        background: linear-gradient(0.25turn, transparent, $dark, transparent);
     }
 }

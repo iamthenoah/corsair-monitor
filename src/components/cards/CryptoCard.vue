@@ -2,7 +2,7 @@
     <div class="card-container noselect content bg-theme-light fade-in">
         <p :class="{ 'placeholder' : placeholder }" class="name">{{ name }}</p>
         <p :class="{ 'placeholder' : placeholder }" class="address">0x{{ address }}</p>
-        <h3 :class="{ 'placeholder' : placeholder }" class="number">{{ value }}</h3>
+        <p :class="{ 'placeholder' : placeholder }" class="number">{{ formatNumber(value) }}</p>
         <div class="bottom right">
             <p :class="{ 'placeholder' : placeholder }" class="eth">{{ ETH }} ETH</p>
         </div>
@@ -11,14 +11,38 @@
 </template>
 
 <script>
+
+import NumberFormatter from 'number-formatter';
+
 export default {
     props: {
-        name: String,
-        address: String,
-        theme: String,
-        value: String,
-        ETH: Number,
-        placeholder: Boolean
+        name: {
+            type: String,
+            default: '____________'
+        },
+        address: {
+            type: String,
+            default: '_________________________________'
+        },
+        theme: {
+            type: String,
+            default: ''
+        },
+        value: {
+            type: String,
+            default: '_________'
+        },
+        ETH: {
+            type: Number,
+            default: 0.000000
+        },
+        placeholder: {
+            type: Boolean,
+            default: false
+        }
+    },
+    methods: {
+        formatNumber: function(value) { return NumberFormatter('$ #,##0.####', value); }
     }
 }
 </script>
@@ -37,12 +61,12 @@ export default {
         cursor: pointer;
         transition: all ease-in-out 300ms;
         transform: scale(1);
-        margin: 5px 15px 30px;
+        margin: 5px 10px 30px 5px; // t r b l
         // box-shadow: 0 15px 10px -10px rgba(black, 0.5);
     }
 
     .card-container:hover {
-        box-shadow: 0 20px 20px -10px rgba(black, 0.5);
+        box-shadow: 0 20px 20px -12.5px rgba(black, 0.5);
         transform: scale(1.02);
     }
 
@@ -52,7 +76,7 @@ export default {
 
     .address {
         margin-top: 5px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         font-weight: 300;
         width: 200px;
         overflow: hidden;
@@ -60,7 +84,13 @@ export default {
         white-space: nowrap;
     }
 
-    p, h3 {
+    .eth {
+        margin-right: 20px;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    p {
         margin-top: 0;
         color: white;
     }
@@ -75,12 +105,6 @@ export default {
         height: 100%;
         filter: blur(2px);
         z-index: -1;
-    }
-
-    .eth {
-        margin-right: 20px;
-        font-weight: bold;
-        font-size: 16px;
     }
 
 </style>

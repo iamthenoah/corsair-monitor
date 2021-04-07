@@ -16,7 +16,7 @@
             <div id="error-container">
                 <p v-if="error" class="error-msg">{{ error }}</p>
             </div>
-            <div class="bottom right">
+            <div class="bottom">
                 <DarkModeButton/> <!--backgroundClass="bg-theme-dark-opposite"-->
             </div>
             <LoadingBar v-show="submit"/>
