@@ -29,12 +29,12 @@ export default {
             default: ''
         },
         value: {
-            type: String,
-            default: '_________'
+            type: Number,
+            default: 100000
         },
         ETH: {
             type: Number,
-            default: 0.000000
+            default: 10000
         },
         placeholder: {
             type: Boolean,

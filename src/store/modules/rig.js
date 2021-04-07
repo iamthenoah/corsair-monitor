@@ -58,10 +58,11 @@ async function getRigGraphInfo(rigId, rigName) {
     const request = async(type) => await axios.get(cors + `http://ethosdistro.com/graphs/?rig=${rigName}&panel=${rigId}&type=${type}&json=yes`)
         .then(res => res.data);
 
+    const h = await request('hash');
+    const hashes = h[rigName + ' hashrate'];
     const temps = await request('temp');
-    const hashs = await request('hash');
     const watts = await request('watts');
     const mems = await request('mem');
     
-    return { temps, hashs, watts, mems };
+    return { hashes, temps, watts, mems };
 }

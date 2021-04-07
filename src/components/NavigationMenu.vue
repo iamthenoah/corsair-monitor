@@ -15,8 +15,8 @@
             />
             <MenuButton 
                 @click="toggleMenu(false)" 
-                route="/rigs" 
-                text="Rig Monitoring" 
+                route="/workers" 
+                text="Worker Monitoring" 
                 icon="leaderboard" 
                 :selected="isCurrent('rig')"
             />

@@ -2,28 +2,46 @@
     <div class="rig-card-container bg-theme-light noselect">
         <div v-if="selected" class="selected-indicator"></div>
         <div class="rig-card-content">
-            <a @click="redirect()" class="right">view details</a>
-            <h4 class="name">{{ name }}</h4>
-            <p class="condition">{{ state }}</p>
-            <p class="number hash-number">{{ hash }} H/s<span class="material-icons">north_east</span></p>
+            <a @click="redirect()" :class="{ 'placeholder' : placeholder }" class="right">view details</a>
+            <h3 :class="{ 'placeholder' : placeholder }" class="name">{{ worker.worker }}</h3>
+            <p :class="{ 'placeholder' : placeholder }" class="condition">{{ worker.validShares ? 'Mining' : 'Idle' }}</p>
+            <p :class="{ 'placeholder' : placeholder }" class="number hash-number">{{ formatNumber(worker.currentHashrate / 1000000) }} MH•s<sup>-1</sup><span class="material-icons">north_east</span></p>
         </div>
     </div>
 </template>
 
 <script>
+
+import NumberFormatter from 'number-formatter';
+
 export default {
     props: {
-        name: String,
-        state: String,
-        temp: String,
-        hash: String,
+        worker: {
+            type: Object,
+            default() {
+                return {
+                    worker: '______',
+                    time: '__________',
+                    lastSeen: '__________',
+                    reportedHashrate: '__________',
+                    currentHashrate: '__________',
+                    validShares: '___',
+                    invalidShares: '___',
+                    staleShares: '___'
+                }
+            }
+        },
         selected: Boolean,
         placeholder: Boolean,
     },
     methods: {
+        formatNumber: function(value) { return NumberFormatter('#,##0.####', value); },
         redirect: function() { 
-            document.getElementById('scroll-to-rig-info').scrollIntoView({ behavior: 'smooth' });
-            this.$router.push(`${this.$route.path}?selected=${this.name}`); 
+            document.getElementById('scroll-to-worker-info').scrollIntoView({ behavior: 'smooth' });
+            this.$router.push(`${this.$route.path}?selected=${this.worker.worker}`); 
+        },
+        getHashStateIcon: function() {
+            
         }
     }
 }
