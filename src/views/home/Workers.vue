@@ -68,19 +68,17 @@ export default {
     async mounted() { 
         this.$store.dispatch('RESET_WORKERS');
         await this.$store.dispatch('GET_WORKERS', '3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf');
-        const workers = JSON.parse(JSON.stringify(this.$store.getters.Workers));
-        
-        if (!this.$route.params.id) {
-            this.$router.push('/workers/' + workers[0].worker);
-        } else {
-            const name = this.$route.params.id;
-            const worker = name ? workers.filter(w => w.worker == name)[0] : workers[0];
 
-            this.$store.dispatch('GET_WORKER_STATISTICS', {
-                address: '3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf',
-                worker: worker
-            });
-        }
+        const workers = JSON.parse(JSON.stringify(this.$store.getters.Workers));
+        if (!this.$route.params.id && workers) this.$router.push('/workers/' + workers[0].worker);
+
+        const name = this.$route.params.id;
+        const worker = name ? workers.filter(w => w.worker == name)[0] : workers[0];
+
+        this.$store.dispatch('GET_WORKER_STATISTICS', {
+            address: '3a7aF0a0527C51E322aBbC3Eabfd31b4fC8F5Dcf',
+            worker: worker
+        });
     },
     computed: {
         Workers: function() { return this.$store.getters.Workers; },

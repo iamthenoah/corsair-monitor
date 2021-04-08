@@ -4,8 +4,8 @@
         <div class="rig-card-content">
             <h3 :class="{ 'placeholder' : placeholder }" class="name">{{ worker.worker }}</h3>
             <p :class="{ 'placeholder' : placeholder }" class="mining-condition">{{ worker.currentHashrate != 0 ? 'Mining' : 'Idle' }}</p>
-            <p :class="{ 'placeholder' : placeholder }" class="number hash-number">{{ formatNumber(worker.currentHashrate / 1000000) }} MH•s<sup>-1</sup><span class="material-icons">north_east</span></p>
-            <p :class="{ 'placeholder' : placeholder }" class="average-hashrate bottom">{{ formatNumber(worker.averageHashrate / 1000000) }} MH•s<sup>-1</sup></p>
+            <p :class="{ 'placeholder' : placeholder }" class="number hash-number">{{ formatNumber(worker.currentHashrate / 1000000) }} MHs<span class="material-icons">north_east</span></p>
+            <p :class="{ 'placeholder' : placeholder }" class="average-hashrate bottom">{{ formatNumber(worker.averageHashrate / 1000000) }} MHs</p>
         </div>
     </div>
 </template>
