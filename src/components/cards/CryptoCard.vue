@@ -1,5 +1,5 @@
 <template>
-    <div class="card-container noselect content bg-theme-light fade-in">
+    <div class="card-container noselect content fade-in bg-theme-light fade-in">
         <p :class="{ 'placeholder' : placeholder }" class="name">{{ name }}</p>
         <p :class="{ 'placeholder' : placeholder }" class="address">0x{{ address }}</p>
         <p :class="{ 'placeholder' : placeholder }" class="number">{{ formatNumber(value) }}</p>

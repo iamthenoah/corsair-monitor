@@ -32,6 +32,9 @@
                             theme="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjnUSnSpwEO49RoQS_hf4Vhou9WLCQsJjAteZd8HOziwF5Y-XnMbrGhg4Q9ZvBj1Jjfkk&usqp=CAU"
                         />
                     </li>
+                    <li>
+                        <AddCryptoCard />
+                    </li>
                 </ul>
             </div>
             <div v-else class="noscroll">
@@ -48,10 +51,12 @@
 <script>
 
 import CryptoCard from '@/components/cards/CryptoCard.vue';
+import AddCryptoCard from '@/components/cards/add/AddCryptoCard.vue';
 
 export default {
     components: {
-        CryptoCard
+        CryptoCard,
+        AddCryptoCard,
     },
     data() {
         return {

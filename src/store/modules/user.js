@@ -16,13 +16,13 @@ const actions = {
         // let res = await axios.post(cors + registerEndpoint, payload);
         // let user = res.data;
         // Vue.$cookies.set('Authorization', user['token']);
-        commit('SET_USER', user);
+        commit('SET_USER', payload);
     },
 
     async LOGIN({ commit }, payload) {
         // let res = await axios.post(cors + loginEndpoint, payload);
         // let user = res.data;
-        commit('SET_USER', user);
+        commit('SET_USER', payload);
     },
 
     LOGOUT({ commit, dispatch }) {

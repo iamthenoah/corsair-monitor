@@ -18,7 +18,7 @@
                 route="/workers" 
                 text="Worker Monitoring" 
                 icon="leaderboard" 
-                :selected="isCurrent('rig')"
+                :selected="isCurrent('workers')"
             />
             <MenuButton 
                 @click="toggleMenu(false)" 
@@ -68,8 +68,10 @@ export default {
         isCurrent: function(path) { return this.$route.path.includes(path); },
         toggleMenu: function(opened = this.$store.getters.isMenuOpened) {
             this.$store.dispatch('TOGGLE_MENU', !opened);
-            document.getElementById('main-container').scrollTo(0, 0);
-            document.getElementById('nav-container').style.width = opened ? '280px' : '80px';
+            const main = document.getElementById('main-container');
+            const nav = document.getElementById('nav-container');
+            if (main) main.scrollTo(0, 0);
+            if (nav) nav.style.width = opened ? '280px' : '80px';
         },
     }
 }

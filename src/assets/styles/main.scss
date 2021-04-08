@@ -95,6 +95,20 @@
 	float: right;
 }
 
+.center-fit {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: fit-content;
+	height: fit-content;
+}
+
+.fit {
+	width: 100%;
+	height: 100%;
+}
+
 .large {
 	width: 100%;
 }

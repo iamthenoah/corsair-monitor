@@ -55,9 +55,10 @@ export default {
 
     span {
         position: absolute;
-        left: 27.5px;
+        left: 30px;
         top: 50%;
         transform: translateY(-50%);
+        font-size: 20px;
     }
 
     .selected {
