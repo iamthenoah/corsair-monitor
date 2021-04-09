@@ -25,7 +25,7 @@ jobs:
           node-version: 14.x
           
       - name: Running Build
-        run: npm build
+        run: npm run build
   
   deploy:
     
