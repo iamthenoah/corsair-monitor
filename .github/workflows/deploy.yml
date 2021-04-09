@@ -24,8 +24,8 @@ jobs:
         with:
           node-version: 14.x
           
-      - name: Running CI Installation
-        run: npm ci
+      - name: Running Build
+        run: npm build
   
   deploy:
     
@@ -39,4 +39,4 @@ jobs:
       - run: git fetch --prune --unshallow
         
       - name: Deploying to Heroku
-        run: sh ./deploy.sh
+        run: sh deploy.sh
