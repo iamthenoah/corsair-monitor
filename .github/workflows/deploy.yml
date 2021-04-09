@@ -39,4 +39,4 @@ jobs:
       - run: git fetch --prune --unshallow
         
       - name: Deploying to Heroku
-        run: ./deploy.sh
+        run: chmod +x ./deploy.sh
