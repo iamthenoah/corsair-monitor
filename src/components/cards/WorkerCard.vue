@@ -98,8 +98,4 @@ export default {
         }
     }
 
-    .average-hashrate {
-        
-    }
-
 </style>

@@ -13,6 +13,7 @@
   },
   "main": "background.js",
   "dependencies": {
+    "apexcharts": "^3.26.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "email-validator": "^2.0.4",
