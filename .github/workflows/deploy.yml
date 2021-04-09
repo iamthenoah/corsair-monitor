@@ -24,6 +24,4 @@ jobs:
         env:
           TOKEN: ${{ secrets.HEROKU_TOKEN }}
           APP: ${{ secrets.HEROKU_APP }}
-        run: |
-          git remote add heroku https://heroku:$TOKEN@git.heroku.com/$APP.git
-          git push heroku HEAD:master -f
+        run: sh ./deploy.sh

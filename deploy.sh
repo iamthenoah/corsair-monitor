@@ -10,4 +10,4 @@ git init
 git remote add origin https://git.heroku.com/corsair-monitor.git
 git add -A
 git commit -m 'deploy'
-git push heroky master -f
+git push heroku HEAD:master -f
