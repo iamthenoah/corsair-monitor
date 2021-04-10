@@ -11,7 +11,6 @@
     "electron:serve": "vue-cli-service electron:serve",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps",
-    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "main": "background.js",
   "dependencies": {

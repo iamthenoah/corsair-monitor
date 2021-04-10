@@ -20,8 +20,8 @@
         </section>
         <hr id="scroll-to-worker-info">
         <section>
-            <h4>Worker Statistics</h4>
-            <div v-if="WorkerStats" id="stat-card-container">
+            <h4>Hasrates</h4>
+            <div v-if="WorkerStats" class="stat-card-container">
                 <StatCard 
                     :value="WorkerStats.worker.currentHashrate / 1000000"
                     suffix="MHs"
@@ -37,20 +37,39 @@
                     suffix="MHs"
                     stat="Reported Hashrate"
                 />
-                <StatCard 
-                    :value="WorkerStats.worker.validShares"
-                    stat="Valid Shares"
-                />
             </div>
-            <div v-else id="stat-card-container">
-                <StatCard placeholder />
+            <div v-else class="stat-card-container">
                 <StatCard placeholder />
                 <StatCard placeholder />
                 <StatCard placeholder />
             </div>
         </section>
-        <section v-show="WorkerStats">
+        <section>
             <div id="hashrate-chart"></div>
+        </section>
+        <section>
+            <h4>Shares</h4>
+            <div v-if="WorkerStats" class="stat-card-container">
+                <StatCard 
+                    :value="WorkerStats.worker.validShares"
+                    stat="Valid Shares"
+                />
+                <StatCard 
+                    :value="WorkerStats.worker.staleShares"
+                    stat="Stale Shares"
+                />
+                <StatCard 
+                    :value="WorkerStats.worker.invalidShares"
+                    stat="Invalid Shares"
+                />
+            </div>
+            <div v-else class="stat-card-container">
+                <StatCard placeholder />
+                <StatCard placeholder />
+                <StatCard placeholder />
+            </div>
+        </section>
+        <section>
             <div id="share-chart"></div>
         </section>
     </main>
@@ -235,10 +254,10 @@ export default {
     
 	@import '@/assets/styles/variables.scss';
 
-    #stat-card-container {
+    .stat-card-container {
         display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         width: 100%;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 20px;
         overflow: hidden;
     }
