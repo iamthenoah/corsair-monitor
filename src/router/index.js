@@ -35,11 +35,8 @@ const routes = [
 	{
 		path: '/authenticate',
 		component: () => import('../views/Auth.vue'),
+		redirect: '/authenticate/login',
 		children: [
-			{
-				path: '',
-				component: () => import('../views/auth/LoginForm.vue')
-			},
 			{
 				path: 'login',
 				component: () => import('../views/auth/LoginForm.vue')

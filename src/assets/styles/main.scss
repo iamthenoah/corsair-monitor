@@ -196,3 +196,20 @@
 	0% { transform: translateX(-100%); }
 	100% { transform: translateX(100%); }
 }
+
+.input-icon-right {
+	position: relative;
+
+	span {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		margin-right: 2px;
+		font-size: 17px;
+		color: $grey;
+		opacity: 0.75;
+		padding: 10px;
+		cursor: pointer;
+	}
+}

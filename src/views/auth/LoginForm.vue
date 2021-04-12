@@ -7,7 +7,10 @@
                 <label>Email</label>
                 <input type="text" placeholder="name@domain.com" v-model="form.email">
                 <label>Password</label>
-                <input type="text" placeholder="password" v-model="form.password">
+                <div class="input-icon-right">
+                    <input :type="viewPassword ? 'text' : 'password'" placeholder="password" v-model="form.password">
+                    <span @click="viewPassword = !viewPassword" class="material-icons">{{ viewPassword ? 'visibility' : 'visibility_off' }}</span>
+                </div>
                 <router-link to="/authenticate/resetPassword"><a id="forgot-password">forgot password?</a></router-link>
             </section>
             <section>
@@ -20,10 +23,11 @@
 
 <script>
 export default {
-    emits: ['submit', 'success'],
+    emits: ['submit', 'success', 'error'],
     data() {
         return {
             submited: false,
+            viewPassword: false,
             form: {
                 email: '',
                 password: ''
@@ -32,14 +36,16 @@ export default {
     },
     methods: {
         Login: async function() {
-            // throw new Error('Invalid email or password.');
             this.submited = true;
             this.$emit('submit', true);
             await setTimeout(() => {
-                this.submited = false;
-                this.$emit('submit', false);
-                this.$emit('success');
-            }, 3000);
+                this.$store.dispatch('LOGIN', this.form)
+                    .then(() => this.$emit('success'))
+                    .catch(err => {
+                        this.submited = false;
+                        this.$emit('error', err.response.data.error);
+                    });
+            }, 1000);
         }
     },
 }

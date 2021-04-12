@@ -1,4 +1,8 @@
-// import axios from 'axios';
+import axios from 'axios';
+
+const version = process.env.VUE_APP_AUTHVERSION;
+const auth = process.env.VUE_APP_AUTH;
+const cors = process.env.VUE_APP_CORS;
 
 const state = {
     user: null,
@@ -11,19 +15,16 @@ const getters = {
 
 const actions = {
     async REGISTER({ commit }, payload) {
-        // let res = await axios.post(cors + registerEndpoint, payload);
-        // let user = res.data;
-        // Vue.$cookies.set('Authorization', user['token']);
-        commit('SET_USER', payload);
+        let res = await axios.post(cors + auth + `${version}/register`, payload);
+        commit('SET_USER', res.data);
     },
 
     async LOGIN({ commit }, payload) {
-        // let res = await axios.post(cors + loginEndpoint, payload);
-        // let user = res.data;
-        commit('SET_USER', payload);
+        let res = await axios.post(cors + auth + `${version}/login`, payload);
+        commit('SET_USER', res.data);
     },
 
-    LOGOUT({ commit, dispatch }) {
+    LOGOUT({ commit }) {
         commit('SET_USER', null);
     },
 };

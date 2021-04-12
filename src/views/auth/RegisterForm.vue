@@ -38,7 +38,10 @@
             <div v-else-if="!step2" id="form-steps" class="fade-in">
                 <section>
                     <label>Choose password</label>
-                    <input type="password" placeholder="choose password" v-model="form.password[0]">
+                    <div class="input-icon-right">
+                        <input :type="viewPassword ? 'text' : 'password'" placeholder="choose password" v-model="form.password[0]">
+                        <span @click="viewPassword = !viewPassword" class="material-icons">{{ viewPassword ? 'visibility' : 'visibility_off' }}</span>
+                    </div>
                     <label>Repeat password</label>
                     <input type="password" placeholder="repeat password" v-model="form.password[1]">
                 </section>
@@ -74,6 +77,7 @@ export default {
             step1: false,
             step2: false,
             submited: false,
+            viewPassword: false,
             form: {
                 username: '',
                 email: '',

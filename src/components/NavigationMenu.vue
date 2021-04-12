@@ -38,10 +38,16 @@
         </section>
         <div class="bottom large">
             <div class="content">
-                <router-link to="/authenticate">
-                    <button v-if="isMenuOpened" class="btn btn-icon large"><span class="material-icons">login</span></button>
-                    <button v-else class="btn btn-icon-left large"><span class="material-icons">login</span>Login</button>
-                </router-link>
+                <div v-if="!isAuthed">
+                    <router-link to="/authenticate">
+                        <button v-if="isMenuOpened" class="btn btn-icon large"><span class="material-icons">login</span></button>
+                        <button v-else class="btn btn-icon-left large"><span class="material-icons">login</span>Login</button>
+                    </router-link>
+                </div>
+                <div v-else>
+                    <button @click="logout()" v-if="isMenuOpened" class="btn btn-icon large"><span class="material-icons">logout</span></button>
+                    <button @click="logout()" v-else class="btn btn-icon-left large"><span class="material-icons">logout</span>Logout</button>
+                </div>
             </div>
             <DarkModeButton/>
         </div>
@@ -73,6 +79,9 @@ export default {
             if (main) main.scrollTo(0, 0);
             if (nav) nav.style.width = opened ? '280px' : '80px';
         },
+        logout: function() {
+            this.$store.dispatch('LOGOUT').then(() => this.$router.push('/authenticate'));
+        }
     }
 }
 </script>
