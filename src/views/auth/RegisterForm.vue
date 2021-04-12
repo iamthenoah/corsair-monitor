@@ -43,7 +43,7 @@
                         <span @click="viewPassword = !viewPassword" class="material-icons">{{ viewPassword ? 'visibility' : 'visibility_off' }}</span>
                     </div>
                     <label>Repeat password</label>
-                    <input type="password" placeholder="repeat password" v-model="form.passwords[1]">
+                    <input :type="viewPassword ? 'text' : 'password'" placeholder="repeat password" v-model="form.passwords[1]">
                 </section>
                 <section>
                     <button 
