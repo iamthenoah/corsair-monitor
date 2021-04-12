@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const cors = 'https://cors-anywhere-app.herokuapp.com/';
-const ethermine = 'https://api.ethermine.org/';
+const cors = process.env.VUE_APP_CORS;
+const ethermine = process.env.VUE_APP_ETHERMINE;
 
 const state = {
     workers: null,

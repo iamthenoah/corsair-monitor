@@ -1,6 +1,4 @@
 // import axios from 'axios';
-import Vue from 'vue';
-
 
 const state = {
     user: null,
@@ -26,7 +24,6 @@ const actions = {
     },
 
     LOGOUT({ commit, dispatch }) {
-        Vue.$cookies.remove('Authorization');
         commit('SET_USER', null);
     },
 };
