@@ -7,7 +7,7 @@
         <section>
             <div v-if="!step1">
                 <h4>Step 1 <span style="font-size: 14px">/ 3</span>.</h4>
-                <p>Tell us your email and choose a name.</p>
+                <p>Tell us your email and choose a username.</p>
             </div>
             <div v-else-if="!step2">
                 <h4>Step 2 <span style="font-size: 14px">/ 3</span>.</h4>
@@ -24,12 +24,12 @@
                     <label>Email</label>
                     <input type="text" placeholder="name@domain.com" v-model="form.email">
                     <label>Username</label>
-                    <input type="text" placeholder="choose a username" v-model="form.username">
+                    <input type="text" placeholder="optional username" v-model="form.username">
                 </section>
                 <section>
                     <button 
                         @click="step1 = true" 
-                        :class="{ 'disabled' : form.email.length === 0 || form.username.length === 0}" 
+                        :class="{ 'disabled' : form.email.length === 0 }" 
                         class="btn-action btn-icon-right large"
                     >Next Step<span class="material-icons">navigate_next</span></button>
                     <p>Already have an account? <router-link to="/authenticate/login"><a>Sign in</a></router-link>.</p>
@@ -39,16 +39,16 @@
                 <section>
                     <label>Choose password</label>
                     <div class="input-icon-right">
-                        <input :type="viewPassword ? 'text' : 'password'" placeholder="choose password" v-model="form.password[0]">
+                        <input :type="viewPassword ? 'text' : 'password'" placeholder="choose password" v-model="form.passwords[0]">
                         <span @click="viewPassword = !viewPassword" class="material-icons">{{ viewPassword ? 'visibility' : 'visibility_off' }}</span>
                     </div>
                     <label>Repeat password</label>
-                    <input type="password" placeholder="repeat password" v-model="form.password[1]">
+                    <input type="password" placeholder="repeat password" v-model="form.passwords[1]">
                 </section>
                 <section>
                     <button 
                         @click="step2 = true" 
-                        :class="{ 'disabled' : form.password[0].length === 0 || form.password[1].length === 0}" 
+                        :class="{ 'disabled' : form.passwords[0].length === 0 || form.passwords[1].length === 0 }" 
                         class="btn-action btn-icon-right large"
                     >Next Step<span class="material-icons">navigate_next</span></button>
                     <p>Go back to <a @click="step1 = false">step 1</a>.</p>
@@ -57,7 +57,7 @@
             <div v-else id="form-steps" class="fade-in">
                 <section>
                     <label>Mining Address</label>
-                    <input type="text" placeholder="address" v-model="form.address">
+                    <input type="text" placeholder="address" v-model="form.addresses[0]">
                     <p id="ex-address">ex: 0x3a7aF0a0527C51E322aBb...</p>
                 </section>
                 <section>
@@ -81,8 +81,8 @@ export default {
             form: {
                 username: '',
                 email: '',
-                password: ['', ''],
-                address: ''
+                passwords: ['', ''],
+                addresses: ['']
             }
         }
     },
@@ -90,12 +90,14 @@ export default {
         Register: async function() {
             this.submited = true;
             this.$emit('submit', true);
-
             await setTimeout(() => {
-                this.submited = false;
-                this.$emit('submit', false);
-                this.$emit('success');
-            }, 3000);
+                this.$store.dispatch('REGISTER', this.form)
+                    .then(() => this.$emit('success'))
+                    .catch(err => {
+                        this.submited = false;
+                        this.$emit('error', err.response.data.error);
+                    });
+            }, 1000);
         }
     },
 }
