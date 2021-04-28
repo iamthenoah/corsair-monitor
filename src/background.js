@@ -19,7 +19,8 @@ async function createWindow() {
 		titleBarStyle: "hiddenInset",
 		webPreferences: {
 			nodeIntegration: process.env.ELECTRON_NODE_INTEGRATION,
-			devTools: false
+			devTools: false,
+			contextIsolation: true
 		}
 	});
 
