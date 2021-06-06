@@ -1,13 +1,7 @@
 <template>
     <div id="auth-container">
         <div id="auth-banner" class="noselect bg-theme-light-opposite">
-            <!-- <img class="fade-left" src="https://www.sia-partners.com/sites/default/files/offers/cover_picture/2020-07/iStock-1145592947-1_1.jpg"> -->
-            <!-- <img class="fade-left" src="https://www.itl.cat/pngfile/big/45-450360_ice-iphone-x-tumblr-wallpaper-hd.jpg"> -->
             <img class="fade-left" src="https://pbs.twimg.com/media/ExGYfNTXAAU8IZ8.jpg:large">
-            <!-- <img class="fade-left" src="https://rule34.xxx//samples/2262/sample_afd012684f4801fb93fd835cb856880b.jpg?2652671" alt=""> -->
-            <!-- <img class="fade-left" src="https://rule34.xxx//samples/3466/sample_545fffcf078dab4df454ad1c72528c12.jpg?3907285" alt=""> -->
-            <!-- <img class="fade-left" src="https://wimg.rule34.xxx//images/4022/1dcab858752e45aa0dd6f25bacaa7422.png" alt=""> -->
-            <!-- <img class="fade-left" src="https://pbs.twimg.com/media/ExZbWm0U4AIFW8O?format=jpg&name=medium" alt=""> -->
         </div>
         <main id="auth-form" class="bg-theme-light-opposite">
             <div id="auth-inputs">
