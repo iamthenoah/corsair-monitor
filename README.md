@@ -1,24 +1,32 @@
-# ethos-monitor
+# Corsair Monitor [![frontend-shield]][frontend-repo] [![backend-shield]][backend-repo]
 
-## Project setup
+Web/Desktop application for monitoring ETH crypto miners on the [ethermine](https://www.ethermine.org) pool from wallet(s).
+
+## Instalation
+
 ```
 npm install
 ```
+## Run
 
-### Compiles and hot-reloads for development
+* ### Webapp
+
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+* ### Webapp + Desktop app
+
 ```
-npm run build
+npm run dev
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Screenshot (Worker Monitoring)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+<img src="docs/screenshot.png" alt="screenshot" width="auto" height="60">
+
+[frontend-shield]: https://github.com/noahgreff/corsair-monitor/workflows/Webapp%20Deployment/badge.svg
+[frontend-repo]: https://github.com/noahgreff/corsair-monitor
+
+[backend-shield]: https://github.com/noahgreff/corsair-monitor-backend/workflows/Webapp%20Deployment/badge.svg
+[backend-repo]: https://github.com/noahgreff/corsair-monitor-backend
