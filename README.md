@@ -4,6 +4,8 @@ Web/Desktop application for monitoring ETH crypto miners on the [ethermine](http
 
 ## Instalation
 
+App uses VueJS in conjunction with ElectronJS.
+
 ```
 npm install
 ```
