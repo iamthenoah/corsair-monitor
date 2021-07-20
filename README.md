@@ -23,7 +23,7 @@ npm run dev
 
 ## Screenshot (Worker Monitoring)
 
-<img src="docs/screenshot.png" alt="screenshot" width="auto" height="60">
+<img src="docs/screenshot.png" alt="screenshot" width="100%">
 
 [frontend-shield]: https://github.com/noahgreff/corsair-monitor/workflows/Webapp%20Deployment/badge.svg
 [frontend-repo]: https://github.com/noahgreff/corsair-monitor
