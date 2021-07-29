@@ -1,4 +1,4 @@
-# ethos-monitor
+# corsair-monitor
 
 ## Project setup
 ```
